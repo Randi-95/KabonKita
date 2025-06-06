@@ -12,7 +12,7 @@ function Dashboard() {
                     <DarkModeToggle/>
                 </div>
                 <div className="md:flex md:justify-between md:w-[95%]">
-                    <div className=" p-5 rounded-xl  md:border md:border-[#393838]">
+                    <div className="md:p-5 rounded-xl  md:border md:border-[#393838]">
                         <div className="w-full p-4">
                             <img src="https://i.pravatar.cc/150?img=60" alt="" className="rounded-full"/>
                             <h1 className="text-white text-2xl font-bold mt-2">Halo,Randi Permana!</h1>
@@ -24,7 +24,7 @@ function Dashboard() {
                         </button>
                     </div>
 
-                    <div className="md:flex md:flex-col p-5 rounded-xl md:border md:border-[#393838]">
+                    <div className="md:flex md:flex-col rounded-xl md:border md:border-[#393838]">
                         <div className="p-3 flex items-center gap-2">
                             <div className="bg-secondary rounded-lg w-10 p-2 flex justify-center">
                                 <Award color="#d1d5dc"/>
@@ -32,7 +32,7 @@ function Dashboard() {
                             <p className="text-gray-300 text-xl">Papan Peringkat Mingguan</p>
                         </div>
 
-                        <div className="flex justify-evenly p-3 gap-3">
+                        <div className="flex justify-evenly p-2 gap-3">
                             <div className="flex  flex-col items-center">
                                 <img src="https://i.pravatar.cc/150?img=60" alt="" className="w-20 rounded-2xl z-0 border-2 border-primary"/>
                                 <div className="flex justify-center">
@@ -45,7 +45,7 @@ function Dashboard() {
                                     <p className="text-sm text-gray-300">Randi Permana</p>
                                     <div className="flex items-center">
                                         <Star color="#a9abb0" size="12px"/>
-                                        <p className="text-[#a9abb0] text-[10px] font-semibold">2000PTS</p>
+                                        <p className="text-[#a9abb0] text-[14px] font-semibold">2000PTS</p>
                                     </div>
                                 </div>
                             </div>
@@ -61,11 +61,11 @@ function Dashboard() {
                                     <p className="text-sm text-gray-300">Randi Permana</p>
                                     <div className="flex items-center">
                                         <Star color="#a9abb0" size="12px"/>
-                                        <p className="text-[#a9abb0] text-[10px] font-semibold">2000PTS</p>
+                                        <p className="text-[#a9abb0] text-[14px] font-semibold">2000PTS</p>
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex  flex-col items-center">
+                            <div className="flex   flex-col items-center">
                                 <img src="https://i.pravatar.cc/150?img=16" alt="" className="w-20 rounded-2xl z-0 border-2 border-primary"/>
                                 <div className="flex justify-center">
                                     <div className="z-20 bg-primary flex justify-center items-center w-10 -mt-2 rounded-md border-3 border-background">
@@ -77,14 +77,14 @@ function Dashboard() {
                                     <p className="text-sm text-gray-300">Randi Permana</p>
                                     <div className="flex items-center">
                                         <Star color="#a9abb0" size="12px"/>
-                                        <p className="text-[#a9abb0] text-[10px] font-semibold">2000PTS</p>
+                                        <p className="text-[#a9abb0] text-[14px] font-semibold">2000PTS</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-3 pl-4">
                             <div className="flex flex-col items-center">
-                                    <img src="https://i.pravatar.cc/150?img=16" alt="" className="w-10 rounded-2xl z-0 border-2 border-primary"/>
+                                    <img src="https://i.pravatar.cc/150?img=16" alt="" className="w-15 rounded-2xl z-0 border-2 border-primary"/>
                                     <div className="flex justify-center">
                                         <div className="z-20 bg-primary flex justify-center items-center w-10 -mt-2 rounded-md border-3 border-background">
                                             <Award size="10px" color="white"/>
@@ -93,16 +93,16 @@ function Dashboard() {
                                     </div>
                             </div>
                             <div className="flex flex-col ">
-                                    <p className="text-sm text-gray-300">Randi Permana</p>
+                                    <p className="text-md text-gray-300">Randi Permana</p>
                                     <div className="flex items-center">
                                          <Star color="#a9abb0" size="12px"/>
-                                         <p className="text-[#a9abb0] text-[10px] font-semibold">2000PTS</p>
+                                         <p className="text-[#a9abb0] text-[14px] font-semibold">2000PTS</p>
                                     </div>
                             </div>
                         </div>
-                        <div className="flex items-center gap-3 mt-2">
+                        <div className="flex items-center gap-3  pl-4 mt-2">
                             <div className="flex flex-col items-center">
-                                    <img src="https://i.pravatar.cc/150?img=16" alt="" className="w-10 rounded-2xl z-0 border-2 border-primary"/>
+                                    <img src="https://i.pravatar.cc/150?img=16" alt="" className="w-15 rounded-2xl z-0 border-2 border-primary"/>
                                     <div className="flex justify-center">
                                         <div className="z-20 bg-primary flex justify-center items-center w-10 -mt-2 rounded-md border-3 border-background">
                                             <Award size="10px" color="white"/>
@@ -111,10 +111,10 @@ function Dashboard() {
                                     </div>
                             </div>
                             <div className="flex flex-col ">
-                                    <p className="text-sm text-gray-300">Randi Permana</p>
+                                    <p className="text-md text-gray-300">Randi Permana</p>
                                     <div className="flex items-center">
                                          <Star color="#a9abb0" size="12px"/>
-                                         <p className="text-[#a9abb0] text-[10px] font-semibold">2000PTS</p>
+                                         <p className="text-[#a9abb0] text-[14px] font-semibold">2000PTS</p>
                                     </div>
                             </div>
                         </div>
