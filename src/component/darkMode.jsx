@@ -10,10 +10,10 @@ export default function DarkModeToggle(props) {
 
     useEffect(() => {
         if (darkMode) {
-            document.documentElement.classList.add("light");
+            document.documentElement.classList.add("dark");
             localStorage.setItem("darkMode", "enabled");
         } else {
-            document.documentElement.classList.remove("light");
+            document.documentElement.classList.remove("dark");
             localStorage.setItem("darkMode", "disabled");
         }
     }, [darkMode]);
@@ -25,7 +25,7 @@ export default function DarkModeToggle(props) {
             className="flex items-center gap-2 cursor-pointer" 
             onClick={() => setDarkMode(prev => !prev)}
         >
-            {darkMode ? <Moon color={colorLight} /> : <Sun color={colorDark} />}
+            {darkMode ? <Sun color={colorLight} /> : <Moon color={colorDark} />}
         </div>
     );
 }
