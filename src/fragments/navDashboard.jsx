@@ -12,24 +12,29 @@ function NavDashboard() {
             <p className="text-primary text-xs md:text-base md:font-medium">Beranda</p>
         </div>
         
-        <div className="group flex flex-col text-gray-400 md:flex-row md:gap-4 items-center md:w-full md:px-4 md:py-3 transition-colors cursor-pointer hover:border-r-2 hover:border-primary">
+        <div className="group flex flex-col text-gray-400 md:flex-row md:gap-4 items-center md:w-full md:px-4 md:py-3 transition-colors cursor-pointer md:hover:border-r-2 hover:border-primary">
             <Target size="25px" className="text-gray-400 group-hover:text-primary" />
             <p className="text-xs md:text-base md:font-medium group-hover:text-primary">Misi</p>
         </div>
 
-        <div className="group flex flex-col text-gray-400 md:flex-row md:gap-4 items-center md:w-full md:px-4 md:py-3 transition-colors cursor-pointer hover:border-r-2 hover:border-primary">
+        <div className="group flex flex-col text-gray-400 md:flex-row md:gap-4 items-center md:w-full md:px-4 md:py-3 transition-colors cursor-pointer md:hover:border-r-2 hover:border-primary">
             <Award size="25px" className="text-gray-400 group-hover:text-primary" />
             <p className="text-xs md:text-base md:font-medium group-hover:text-primary">Peringkat</p>
         </div>
 
-        <div className="group flex flex-col text-gray-400 md:flex-row md:gap-4 items-center md:w-full md:px-4 md:py-3 transition-colors cursor-pointer hover:border-r-2 hover:border-primary ">
+        <div className="group flex flex-col text-gray-400 md:flex-row md:gap-4 items-center md:w-full md:px-4 md:py-3 transition-colors cursor-pointer md:hover:border-r-2 hover:border-primary ">
             <Calendar size="25px" className="text-gray-400 group-hover:text-primary" />
             <p className="text-xs md:text-base md:font-medium group-hover:text-primary">Acara</p>
         </div>
 
-        <div className="group flex flex-col text-gray-400 md:flex-row md:gap-4 items-center md:w-full md:px-4 md:py-3 transition-colors cursor-pointer hover:border-r-2 hover:border-primary">
-            <User size="25px" className="text-gray-400 group-hover:text-primary" />
-            <p className="text-xs md:text-base md:font-medium group-hover:text-primary">Profile</p>
+        <div className="group flex flex-col text-gray-400 md:flex-row md:gap-2 items-center md:w-full md:px-3 transition-colors cursor-pointer ">
+            <div className="md:border flex w-full p-2 rounded-lg gap-1">
+                <img src="https://i.pravatar.cc/150?img=60" alt="" className="w-10 rounded-full z-0 "/>
+                <div className="md:flex flex-col hidden">
+                    <p className="text-xs md:text-base md:font-medium group-hover:text-primary">Randi </p>
+                    <p className="text-xs md:text-[12px] md:font-medium group-hover:text-primary -mt-1">2000 poin </p>
+                </div>
+            </div>
         </div>
 
     </div>
