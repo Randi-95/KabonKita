@@ -6,13 +6,13 @@ import CardMisi from "../fragments/cardMisi"
 
 function Dashboard() {
     return (
-        <div className="h-[9999px] bg-white dark:bg-background">
+        <div className="h-[9999px] bg-white dark:bg-background ">
            <NavDashboard/>
-           <div className="lg:w-3/4 absolute right-0">
+           <div className="lg:w-3/4 lg:absolute lg:right-0">
                 <div className="w-full p-4 flex justify-end">
                     <DarkModeToggle/>
                 </div>
-                <div className="md:flex md:justify-between gap-4 lg:w-[95%] md:mx-3">
+                <div className="sm:flex md:justify-between gap-4 lg:w-[95%] s:mx-3">
                     <div className="md:p-8 rounded-xl  md:border md:border-[#393838]">
                         <div className="w-full p-4">
                             <img src="https://i.pravatar.cc/150?img=60" alt="" className="rounded-full"/>
