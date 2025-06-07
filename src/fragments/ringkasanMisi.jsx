@@ -1,12 +1,23 @@
+import { Navigation, Zap, Trash2, HelpCircle } from 'react-feather';
+
 function RingkasanMisi({ title,deskripsi, type, icon, points, borderColor, typeColor }) {
+  const renderIkon = () => {
+    // Kita gunakan switch case agar kodenya rapi
+    switch (icon) {
+      case 'Navigation':
+        return <Navigation className={`w-6 h-6 ${typeColor}`} />;
+      case 'Zap':
+        return <Zap className={`w-6 h-6 ${typeColor}`} />;
+      case 'Trash2':
+        return <Trash2 className={`w-6 h-6 ${typeColor}`} />;
+    }
+  };
+  
   return (
     <div className={`bg-secondary shadow-xl p-4 border-l-4 ${borderColor}`}>
-      <div className="flex items-center justify-between mb-3">
+      <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-2">
-          <div className="w-6 h-6 rounded-full flex items-center justify-center">
-            {icon}
-          </div>
-          <span className={`text-md font-mono font-bold ${typeColor}`}>
+          <span className={`text-lg font-mono font-bold ${typeColor}`}>
             {type}
           </span>
         </div>

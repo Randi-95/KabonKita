@@ -2,10 +2,17 @@ import { Navigation, Trash2, Zap } from "react-feather";
 import DarkModeToggle from "../component/darkMode";
 import NavDashboard from "../fragments/navDashboard";
 import { CardMobilitasHijau, CardHematEnergi, CardKebersihan } from "../fragments/cardMisi";
-
-
+import { dataMisi } from "../utils/dataMisi";
+import { useState, useContext } from "react";
+import { MisiSubmitContext } from "../context/misiSubmitContext";
+import { Link } from "react-router-dom";
 
 function MisiPage() {
+  const mobilitasHijau = dataMisi[0].mobilitasHijau
+  const hematEnergi = dataMisi[0].hematEnergi
+  const kebersihan = dataMisi[0].kebersihan
+  const {aktifSubmit, setAktifSubmit} = useContext(MisiSubmitContext)
+
   return (
     <div className="h-[9999px] bg-background">
       <NavDashboard />
@@ -26,8 +33,11 @@ function MisiPage() {
                       MOBILITAS HIJAU
                     </h2>
                 </div>
-
-                <CardMobilitasHijau title="Naik Sepeda ke Sekolah" points={10} />
+                {mobilitasHijau.map((data, index) => (
+                  <Link key={index} to="/SubmitAksi" onClick={() => (setAktifSubmit(data))} className="bg-secondary shadow-xl p-4 border-l-4 border-green-400">
+                    <CardMobilitasHijau title={data.judul} points={data.point} />
+                  </Link>
+                ))}
               </div>
               
               <div className="flex flex-col gap-2">
@@ -37,7 +47,11 @@ function MisiPage() {
                     HEMAT ENERGI
                   </h2>
                 </div>
-                <CardHematEnergi title="Matikan Lampu" points={5} />
+                {hematEnergi.map((data, index) => (
+                  <Link key={index} to="/SubmitAksi" onClick={() => (setAktifSubmit(data))} className="bg-secondary shadow-xl p-4 border-l-4 border-green-400">
+                    <CardHematEnergi title={data.judul} points={data.point} />
+                  </Link>
+                ))}
               </div>
 
               <div className="flex flex-col gap-2">
@@ -48,12 +62,12 @@ function MisiPage() {
                   </h2>
                 </div>
 
-                
-                <CardKebersihan title="Buang Sampah pada Tempatnya" points={8} />
+                {kebersihan.map((data, index) => (
+                  <Link key={index} to="/SubmitAksi" onClick={() => (setAktifSubmit(data))} className="bg-secondary shadow-xl p-4 border-l-4 border-green-400">
+                    <CardKebersihan title={data.judul} points={data.point} />
+                  </Link>
+                ))}
               </div>
-                
-                
-
             </div>
 
 

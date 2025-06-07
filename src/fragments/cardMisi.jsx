@@ -1,13 +1,11 @@
 import { Navigation,Zap, Trash2 } from "react-feather";
-import { Link } from "react-router-dom";
-
-
-
+import { data, Link } from "react-router-dom";
 
 function CardMobilitasHijau({ title, points }) {
+
   return (
     
-    <Link to="/SubmitAksi" className="bg-secondary shadow-xl p-4 border-l-4 border-green-400">
+    <>
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
           <div className="w-6 h-6 rounded-full flex items-center justify-center">
@@ -28,14 +26,14 @@ function CardMobilitasHijau({ title, points }) {
           <span>{points} poin</span>
         </div>
       </div>
-    </Link>
+    </>
   );
 }
 
 function CardHematEnergi({ title, points }) {
   return (
     
-    <Link to="/SubmitAksi" className="bg-secondary shadow-xl p-4 border-l-4 border-yellow-400">
+    <>
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
           <div className="w-6 h-6 rounded-full flex items-center justify-center">
@@ -56,14 +54,14 @@ function CardHematEnergi({ title, points }) {
           <span>{points} poin</span>
         </div>
       </div>
-    </Link>
+    </>
   );
 }
 
 function CardKebersihan({ title, points }) {
   return (
     
-    <Link to="/SubmitAksi" className="bg-secondary shadow-xl p-4 border-l-4 border-red-400">
+    <>
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
           <div className="w-6 h-6 rounded-full flex items-center justify-center">
@@ -84,7 +82,7 @@ function CardKebersihan({ title, points }) {
           <span>{points} poin</span>
         </div>
       </div>
-    </Link>
+    </>
   );
 }
 
