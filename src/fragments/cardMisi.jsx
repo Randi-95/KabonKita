@@ -1,36 +1,91 @@
-function CardMisi() {
+import { Navigation,Zap, Trash2 } from "react-feather";
+import { Link } from "react-router-dom";
+
+
+
+
+function CardMobilitasHijau({ title, points }) {
   return (
-    <div className="bg-secondary shadow-xl rounded-lg p-4 border-l-4 border-primary">
+    
+    <Link to="/SubmitAksi" className="bg-secondary shadow-xl p-4 border-l-4 border-green-400">
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
-          <div className="w-6 h-6 p-1 bg-primary rounded-full flex items-center justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" 
-                width="24" height="24" viewBox="0 0 24 24" 
-                fill="none" stroke="white" 
-                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-                class="lucide lucide-tree-deciduous">
-            <path d="M8 19a4 4 0 0 1-2-7.5 4 4 0 0 1 4-6.5h4a4 4 0 0 1 4 6.5 4 4 0 0 1-2 7.5"/>
-            <path d="M12 19v3"/>
-            <path d="M12 15v4"/>
-            </svg>
-
-
+          <div className="w-6 h-6 rounded-full flex items-center justify-center">
+            <Navigation className="text-green-400"/>
           </div>
-          <span className="text-primary text-sm font-semibold">Harian</span>
+          <span className="text-md font-mono font-bold text-green-400">
+            Mobilitas Hijau
+          </span>
         </div>
       </div>
 
-      <h2 className="text-white text-lg font-medium mb-4  decoration-gray-500">
-        Mematikan Lampu saat tidak digunakan
+      <h2 className="text-white text-lg font-medium mb-4 decoration-gray-500">
+        {title}
       </h2>
 
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-1 text-gray-400 text-sm">
-          <span>100 poin</span>
+          <span>{points} poin</span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
-export default CardMisi
+function CardHematEnergi({ title, points }) {
+  return (
+    
+    <Link to="/SubmitAksi" className="bg-secondary shadow-xl p-4 border-l-4 border-yellow-400">
+      <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center gap-2">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center">
+               <Zap className="text-yellow-400"/>
+          </div>
+          <span className="text-md font-mono font-bold text-yellow-400">
+            Hemat Energi
+          </span>
+        </div>
+      </div>
+
+      <h2 className="text-white text-lg font-medium mb-4 decoration-gray-500">
+        {title}
+      </h2>
+
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-1 text-gray-400 text-sm">
+          <span>{points} poin</span>
+        </div>
+      </div>
+    </Link>
+  );
+}
+
+function CardKebersihan({ title, points }) {
+  return (
+    
+    <Link to="/SubmitAksi" className="bg-secondary shadow-xl p-4 border-l-4 border-red-400">
+      <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center gap-2">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center">
+             <Trash2 className="text-red-400"/>
+          </div>
+          <span className="text-md font-mono font-bold text-red-400">
+            Kebersihan
+          </span>
+        </div>
+      </div>
+
+      <h2 className="text-white text-lg font-medium mb-4 decoration-gray-500">
+        {title}
+      </h2>
+
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-1 text-gray-400 text-sm">
+          <span>{points} poin</span>
+        </div>
+      </div>
+    </Link>
+  );
+}
+
+export { CardMobilitasHijau, CardHematEnergi, CardKebersihan };

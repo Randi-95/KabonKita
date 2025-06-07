@@ -1,4 +1,5 @@
 import { Award, Calendar, Home, Target, User } from "react-feather"
+import { Link, NavLink } from "react-router-dom"
 
 function NavDashboard() {
     return(
@@ -7,27 +8,52 @@ function NavDashboard() {
             <img src="/KarbonKita.png" alt="" className="w-40 -translate-x-2"/>
         </div>
         
-        <div className="flex flex-col lg:flex-row lg:gap-4 items-center lg:items-center lg:w-full lg:px-4 lg:py-3  lg:border-r-2 lg:border-primary lg:transition-colors cursor-pointer">
-            <Home size="25px" className="text-primary"/>
-            <p className="text-primary text-xs lg:text-base lg:font-medium">Beranda</p>
-        </div>
-        
-        <div className="group flex flex-col text-gray-400 lg:flex-row lg:gap-4 items-center lg:w-full lg:px-4 lg:py-3 transition-colors cursor-pointer lg:hover:border-r-2 hover:border-primary">
-            <Target size="25px" className="text-gray-400 group-hover:text-primary" />
-            <p className="text-xs lg:text-base lg:font-medium group-hover:text-primary">Misi</p>
-        </div>
+        <NavLink 
+        to="/" 
+        className={({ isActive }) =>
+            `flex flex-col lg:flex-row lg:gap-4 items-center lg:w-full lg:px-4 lg:py-3 cursor-pointer lg:transition-colors ${
+            isActive ? 'text-primary lg:border-primary  lg:border-r-2' : 'text-gray-400 hover:text-primary lg:hover:border-r-2 lg:hover:border-primary'
+            }`
+        }>
+        <Home size="25px" className={({ isActive }) => (isActive ? 'text-primary' : 'text-gray-400 group-hover:text-primary')} />
+        <p className="text-xs lg:text-base lg:font-medium">Beranda</p>
+        </NavLink>
 
-        <div className="group flex flex-col text-gray-400 lg:flex-row lg:gap-4 items-center lg:w-full lg:px-4 lg:py-3 transition-colors cursor-pointer lg:hover:border-r-2 hover:border-primary">
-            <Award size="25px" className="text-gray-400 group-hover:text-primary" />
-            <p className="text-xs lg:text-base lg:font-medium group-hover:text-primary">Peringkat</p>
-        </div>
+        <NavLink 
+        to="/misi" 
+        className={({ isActive }) =>
+            `flex flex-col lg:flex-row lg:gap-4 items-center lg:w-full lg:px-4 lg:py-3 cursor-pointer lg:transition-colors ${
+            isActive ? 'text-primary lg:border-primary  lg:border-r-2' : 'text-gray-400 hover:text-primary lg:hover:border-r-2  lg:hover:border-primary'
+            }`
+        }>
+        <Target size="25px" className={({ isActive }) => (isActive ? 'text-primary' : 'text-gray-400')} />
+        <p className="text-xs lg:text-base lg:font-medium">Misi</p>
+        </NavLink>
 
-        <div className="group flex flex-col text-gray-400 lg:flex-row lg:gap-4 items-center lg:w-full lg:px-4 lg:py-3 transition-colors cursor-pointer lg:hover:border-r-2 hover:border-primary ">
-            <Calendar size="25px" className="text-gray-400 group-hover:text-primary" />
-            <p className="text-xs lg:text-base lg:font-medium group-hover:text-primary">Acara</p>
-        </div>
+        <NavLink 
+        to="/peringkat" 
+        className={({ isActive }) =>
+            `flex flex-col lg:flex-row lg:gap-4 items-center lg:w-full lg:px-4 lg:py-3 cursor-pointer lg:transition-colors ${
+            isActive ? 'text-primary lg:border-primary  lg:border-r-2' : 'text-gray-400 hover:text-primary lg:hover:border-r-2 lg:hover:border-primary'
+            }`
+        }>
+        <Award size="25px" className={({ isActive }) => (isActive ? 'text-primary' : 'text-gray-400')} />
+        <p className="text-xs lg:text-base lg:font-medium">Peringkat</p>
+        </NavLink>
 
-        <div className="group flex flex-col text-gray-400 lg:flex-row lg:gap-2 items-center lg:w-full lg:px-3 transition-colors cursor-pointer ">
+        <NavLink 
+        to="/acara" 
+        className={({ isActive }) =>
+            `flex flex-col lg:flex-row lg:gap-4 items-center lg:w-full lg:px-4 lg:py-3 cursor-pointer lg:transition-colors ${
+            isActive ? 'text-primary lg:border-primary  lg:border-r-2' : 'text-gray-400 hover:text-primary lg:hover:border-r-2 lg:hover:border-primary'
+            }`
+        }>
+        <Calendar size="25px" className={({ isActive }) => (isActive ? 'text-primary' : 'text-gray-400')} />
+        <p className="text-xs lg:text-base lg:font-medium">Acara</p>
+        </NavLink>
+
+
+        <Link to="" className="group flex flex-col text-gray-400 lg:flex-row lg:gap-2 items-center lg:w-full lg:px-3 transition-colors cursor-pointer ">
             <div className="lg:border flex w-full p-2 rounded-lg gap-1">
                 <img src="https://i.pravatar.cc/150?img=60" alt="" className="w-10 rounded-full z-0 "/>
                 <div className="lg:flex flex-col hidden">
@@ -35,7 +61,7 @@ function NavDashboard() {
                     <p className="text-xs lg:text-[12px] lg:font-medium group-hover:text-primary -mt-1">2000 poin </p>
                 </div>
             </div>
-        </div>
+        </Link>
 
     </div>
     )

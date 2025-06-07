@@ -6,6 +6,8 @@ import './App.css'
 import Dashboard from './pages/Dashboard'
 import LoginPage from './pages/login'
 import RegisterPage from './pages/register'
+import MisiPage from './pages/Misi'
+import PageSubmit from './pages/SubmitAksi'
 
 
 const router = createBrowserRouter ([
@@ -21,6 +23,14 @@ const router = createBrowserRouter ([
     path: "/register",
     element: <RegisterPage/>
   },
+  {
+    path: "/misi",
+    element: <MisiPage/>
+  },
+  {
+    path: "/SubmitAksi",
+    element: <PageSubmit/>
+  }
 ])
 
 createRoot(document.getElementById('root')).render(

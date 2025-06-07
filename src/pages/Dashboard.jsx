@@ -1,7 +1,7 @@
 import { Award, Flag, Layers, MapPin, Star, Sun } from "react-feather"
 import NavDashboard from "../fragments/navDashboard"
 import DarkModeToggle from "../component/darkMode"
-import CardMisi from "../fragments/cardMisi"
+
 
 
 function Dashboard() {
@@ -16,7 +16,7 @@ function Dashboard() {
                     <div className="md:p-8 rounded-xl  md:border md:border-[#393838]">
                         <div className="w-full p-4">
                             <img src="https://i.pravatar.cc/150?img=60" alt="" className="rounded-full"/>
-                            <h1 className="text-white text-2xl font-bold mt-2">Halo,Randi Permana!</h1>
+                            <h1 className="text-white text-2xl font-bold mt-2 font-mono">Halo,Randi Permana!</h1>
                             <p className="text-gray-300 leading-4">Selamat kamu sudah menyelesaikan 3 aksi hijau minggu ini</p>
                             <p className="text-gray-300">Total poin: 2000</p>
                         </div>
@@ -30,7 +30,7 @@ function Dashboard() {
                             <div className="bg-secondary rounded-lg w-10 p-2 flex justify-center">
                                 <Award color="#d1d5dc"/>
                             </div>
-                            <p className="text-gray-300 text-xl">Papan Peringkat Mingguan</p>
+                            <p className="text-gray-300 text-xl font-bold font-mono">Papan Peringkat Mingguan</p>
                         </div>
 
                         <div className="flex justify-between md:justify-evenly p-4 gap-3 ">
@@ -126,7 +126,7 @@ function Dashboard() {
                     <div className="bg-secondary rounded-lg w-10 p-2 flex justify-center">
                     <Flag color="#d1d5dc"/>
                     </div>
-                    <p className="text-gray-300 font-semibold text-2xl leading-7">Ayo Segera Laporkan Aksi Hijau Kamu</p>
+                    <p className="text-gray-300 font-bold font-mono text-2xl leading-7">Ayo Segera Laporkan Aksi Hijau Kamu</p>
                 </div>
 
 
@@ -139,13 +139,10 @@ function Dashboard() {
                         <div className="bg-secondary rounded-lg w-10 p-2 flex justify-center">
                         <Layers color="#d1d5dc"/>
                         </div>
-                        <p className="text-gray-300 font-semibold text-2xl leading-7">Aksi Hari Ini</p>
+                        <p className="text-gray-300 font-bold font-mono text-2xl leading-7">Aksi Hari Ini</p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 w-[90%] mx-auto md:w-[98%] gap-4">
-                        <CardMisi/>
-                        <CardMisi/>
-                        <CardMisi/>
-                        <CardMisi/>
+                        
                     </div>
                 </div>
             </div>
