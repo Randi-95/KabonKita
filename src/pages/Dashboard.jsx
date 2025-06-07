@@ -6,7 +6,7 @@ import DarkModeToggle from "../component/darkMode"
 
 function Dashboard() {
     return (
-        <div className="h-[9999px] bg-white dark:bg-background ">
+        <div className="h-[9999px] bg-background ">
            <NavDashboard/>
            <div className="lg:w-3/4 lg:absolute lg:right-0">
                 <div className="w-full p-4 flex justify-end">
