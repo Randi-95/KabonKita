@@ -9,6 +9,7 @@ import RegisterPage from './pages/register'
 import MisiPage from './pages/Misi'
 import PageSubmit from './pages/SubmitAksi'
 import AdminPage from './pages/Admin'
+import { MisiSubmitProvider } from './context/misiSubmitContext'
 
 
 const router = createBrowserRouter ([
@@ -40,7 +41,9 @@ const router = createBrowserRouter ([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <MisiSubmitProvider>
+      <RouterProvider router={router} />
+    </MisiSubmitProvider>
   </StrictMode>
 )
 
