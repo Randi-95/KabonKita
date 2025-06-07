@@ -60,7 +60,7 @@ function PageSubmit() {
   // Jika kode sampai di sini, kita 100% yakin 'aktifSubmit' sudah berisi data.
   // Sehingga aman untuk me-render JSX di bawah ini.
   return (
-    <div className="min-h-screen bg-white dark:bg-background">
+    <div className="min-h-screen bg-background">
       <div className="hidden lg:block">
         <NavDashboard />
       </div>
