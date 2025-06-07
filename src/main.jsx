@@ -8,6 +8,7 @@ import LoginPage from './pages/login'
 import RegisterPage from './pages/register'
 import MisiPage from './pages/Misi'
 import PageSubmit from './pages/SubmitAksi'
+import AdminPage from './pages/Admin'
 
 
 const router = createBrowserRouter ([
@@ -30,6 +31,10 @@ const router = createBrowserRouter ([
   {
     path: "/SubmitAksi",
     element: <PageSubmit/>
+  },
+  {
+    path: "/admin",
+    element: <AdminPage/>
   }
 ])
 
