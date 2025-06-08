@@ -13,12 +13,17 @@ import { MisiSubmitProvider } from './context/misiSubmitContext'
 import LeaderboardPage from './pages/Leaderboard'
 import LeaderboardPageGemini from './pages/leaderboardGemini'
 import ProfilePage from './pages/Profile'
+import Home from './pages/Home'
 
 
 const router = createBrowserRouter ([
   {
       path: "/",
       element: <Dashboard/>
+  },
+  {
+    path: "/home",
+    element: <Home/>
   },
   {
     path: "/login",
