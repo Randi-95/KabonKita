@@ -10,6 +10,8 @@ import MisiPage from './pages/Misi'
 import PageSubmit from './pages/SubmitAksi'
 import AdminPage from './pages/Admin'
 import { MisiSubmitProvider } from './context/misiSubmitContext'
+import LeaderboardPage from './pages/Leaderboard'
+import LeaderboardPageGemini from './pages/leaderboardGemini'
 
 
 const router = createBrowserRouter ([
@@ -36,6 +38,14 @@ const router = createBrowserRouter ([
   {
     path: "/admin",
     element: <AdminPage/>
+  },
+  {
+    path: "/peringkat",
+    element: <LeaderboardPage/>
+  },
+  {
+    path: "/peringkatGemini",
+    element: <LeaderboardPageGemini/>
   }
 ])
 
