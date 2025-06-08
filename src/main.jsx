@@ -12,6 +12,7 @@ import AdminPage from './pages/Admin'
 import { MisiSubmitProvider } from './context/misiSubmitContext'
 import LeaderboardPage from './pages/Leaderboard'
 import LeaderboardPageGemini from './pages/leaderboardGemini'
+import ProfilePage from './pages/Profile'
 
 
 const router = createBrowserRouter ([
@@ -46,7 +47,11 @@ const router = createBrowserRouter ([
   {
     path: "/peringkatGemini",
     element: <LeaderboardPageGemini/>
-  }
+  },
+  {
+    path: "/profile",
+    element: <ProfilePage/>
+  },
 ])
 
 createRoot(document.getElementById('root')).render(

@@ -53,7 +53,7 @@ function NavDashboard() {
         </NavLink>
 
 
-        <Link to="" className="group flex flex-col text-gray-400 lg:flex-row lg:gap-2 items-center lg:w-full lg:px-3 transition-colors cursor-pointer ">
+        <Link to="/profile" className="group flex flex-col text-gray-400 lg:flex-row lg:gap-2 items-center lg:w-full lg:px-3 transition-colors cursor-pointer ">
             <div className="lg:border flex w-full p-2 rounded-lg gap-1">
                 <img src="https://i.pravatar.cc/150?img=60" alt="" className="w-10 rounded-full z-0 "/>
                 <div className="lg:flex flex-col hidden">
