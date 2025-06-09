@@ -222,9 +222,9 @@ function Dashboard() {
             </div>
           </div>
           <div className="flex gap-2">
-            <div className="bg-secondary h-fit p-2 rounded-lg">
-              <DarkModeToggle />
-            </div>
+            <Link to="/riwayat" className="bg-secondary h-fit p-2 rounded-lg">
+              <Clock className="text-white"/>
+            </Link>
             <div className="bg-secondary h-fit p-2 rounded-lg">
               <User className="text-white" />
             </div>
