@@ -1,6 +1,7 @@
-import { Award, Flag, Layers, MapPin, Star, Sun } from "react-feather"
+import { Award, Flag, Layers, MapPin, Star, Sun, Target } from "react-feather"
 import NavDashboard from "../fragments/navDashboard"
 import DarkModeToggle from "../component/darkMode"
+import { Navigation, Stars, User } from "lucide-react"
 
 
 
@@ -9,21 +10,50 @@ function Dashboard() {
         <div className="h-[9999px] bg-background ">
            <NavDashboard/>
            <div className="lg:w-3/4 lg:absolute lg:right-0">
-                <div className="w-full p-4 flex justify-end">
-                    <DarkModeToggle/>
-                </div>
-                <div className="sm:flex md:justify-between gap-4 lg:w-[95%] s:mx-3">
-                    <div className="md:p-8 rounded-xl  md:border md:border-[#393838]">
-                        <div className="w-full p-4">
-                            <img src="https://i.pravatar.cc/150?img=60" alt="" className="rounded-full"/>
-                            <h1 className="text-white text-2xl font-bold mt-2 font-mono">Halo,Randi Permana!</h1>
-                            <p className="text-gray-300 leading-4">Selamat kamu sudah menyelesaikan 3 aksi hijau minggu ini</p>
-                            <p className="text-gray-300">Total poin: 2000</p>
+                <div className="w-full p-4 flex justify-between items-center">
+                    <div className="flex items-center gap-2">
+                        <img src="https://i.pravatar.cc/150?img=60" alt="" className="w-12 rounded-lg"/>
+                        <div className="">
+                            <h2 className="text-gray-400 font-bold text-xs">Halo, Randi Permana</h2>
+                            <p className="text-gray-200 font-semibold text-lg -mt-1">Mulai Aksi Hijaumu</p>
                         </div>
-                        <button className="w-[95%] p-3 rounded-xl mx-auto flex justify-center bg-secondary hover:bg-[#223a2d]">
-                            <p className="text-gray-200 font-semibold">Lihat Profile</p>
-                        </button>
                     </div>
+                    <div className="flex gap-2">
+                        <div className="bg-secondary h-fit p-2 rounded-lg">
+                            <DarkModeToggle/>
+                        </div>
+                        <div className="bg-secondary h-fit p-2 rounded-lg">
+                            <User className="text-white"/>
+                        </div>
+                    </div>
+                </div>
+                <div className=" md:justify-between gap-4 lg:w-[95%] s:mx-3">
+                   
+                        <div className="m-4 lg:m-0 lg:mb-2">
+                            <img src="/benner.png" alt="" className="rounded-xl shadow-xl"/>
+                        </div>
+
+                        <div className="px-5">
+                            <h2 className="text-gray-300 font-semibold">Misi Tersedia</h2>
+
+                            <div className="">
+                                
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                     <div className="md:flex md:flex-col rounded-xl md:border md:border-[#393838] p-3">
                         <div className="p-3 flex items-center gap-2">
