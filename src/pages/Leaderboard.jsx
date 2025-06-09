@@ -216,7 +216,7 @@ const PodiumItem = ({ user }) => {
   );
 };
 
-const PlaceholderPodium = ({ rank }) => (
+export const PlaceholderPodium = ({ rank }) => (
   <div className="flex flex-col items-center w-1/3 opacity-50">
     <div
       className={`flex items-center justify-center bg-gray-700 border-2 border-dashed border-gray-500 rounded-2xl ${

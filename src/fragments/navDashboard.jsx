@@ -1,7 +1,10 @@
 import { Award, Calendar, Home, Target, User } from "react-feather"
 import { Link, NavLink } from "react-router-dom"
+import { useAuth } from "../hooks/useAuth"
 
 function NavDashboard() {
+    const {profile} = useAuth()
+
     return(
     <div className="bg-background z-50 fixed flex items-center lg:items-start bottom-0 lg:bottom-auto lg:left-0 lg:flex-col lg:w-60 h-20 lg:h-full w-full border-t lg:border-t-0 lg:border-r border-[#2d5c41] justify-evenly lg:justify-start lg:gap-6 lg:pt-8">
         <div className="lg:flex justify-center w-full hidden">
@@ -58,7 +61,7 @@ function NavDashboard() {
                 <img src="https://i.pravatar.cc/150?img=60" alt="" className="w-10 rounded-full z-0 "/>
                 <div className="lg:flex flex-col hidden">
                     <p className="text-xs lg:text-base lg:font-medium group-hover:text-primary">Randi </p>
-                    <p className="text-xs lg:text-[12px] lg:font-medium group-hover:text-primary -mt-1">2000 poin </p>
+                    <p className="text-xs lg:text-[12px] lg:font-medium group-hover:text-primary -mt-1">{profile?.points} poin </p>
                 </div>
             </div>
         </Link>
