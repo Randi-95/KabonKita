@@ -3,6 +3,7 @@ import {
     Menu, X, ArrowRight, Check, ChevronsRight, BarChart2, Layers, Users, 
     ChevronDown, Twitter, Instagram, Linkedin, Mail
 } from 'react-feather';
+import { Link } from 'react-router-dom';
 
 // Komponen FAQ Item untuk kebersihan kode
 const FaqItem = ({ faq, index, openFaq, setOpenFaq }) => {
@@ -76,10 +77,10 @@ function Home() {
                             {navLinks.map(link => <a key={link.title} href={link.href} className="hover:text-primary transition-colors">{link.title}</a>)}
                         </div>
                         <div className="hidden lg:flex items-center gap-4">
-                            <a href="#" className="font-medium hover:text-white">Masuk</a>
-                            <a href="#" className="px-5 py-2 font-semibold text-white bg-gradient-to-r from-green-500 to-teal-500 rounded-lg hover:opacity-90 transition-opacity">
+                            <Link to="/login" className="font-medium hover:text-white">Masuk</Link>
+                            <Link to="/login" href="#" className="px-5 py-2 font-semibold text-white bg-gradient-to-r from-green-500 to-teal-500 rounded-lg hover:opacity-90 transition-opacity">
                                 Gabung Gerakan
-                            </a>
+                            </Link>
                         </div>
                         <div className="lg:hidden">
                             <button onClick={() => setIsMenuOpen(true)}><Menu /></button>
@@ -95,15 +96,15 @@ function Home() {
                         <div className="flex flex-col gap-8 text-center">
                             {navLinks.map(link => <a key={link.title} href={link.href} onClick={() => setIsMenuOpen(false)} className="text-2xl hover:text-teal-400 transition-colors">{link.title}</a>)}
                             <hr className="border-slate-700 my-4" />
-                            <a href="#" className="text-2xl font-medium">Masuk</a>
-                            <a href="#" className="w-full mt-4 px-5 py-3 text-lg font-semibold text-white bg-gradient-to-r from-green-500 to-teal-500 rounded-lg">Gabung Gerakan</a>
+                            <Link to="/login" className="text-2xl font-medium">Masuk</Link>
+                            <Link to="/login" href="#" className="w-full mt-4 px-5 py-3 text-lg font-semibold text-white bg-gradient-to-r from-green-500 to-teal-500 rounded-lg">Gabung Gerakan</Link>
                         </div>
                     </div>
                 )}
             </nav>
 
             <main>
-                <section id="home" className="relative container mx-auto px-6 lg:px-8 pt-24 pb-16 md:pt-32 md:pb-24 flex flex-col lg:flex-row items-center gap-12">
+                <section id="home" className="relative container mx-auto px-6 lg:px-8 pt-10 pb-16  md:pb-24 flex flex-col lg:flex-row items-center gap-12">
                     <div className="lg:w-1/2 text-center lg:text-left">
                         <span className="inline-block px-4 py-1 mb-4 text-sm font-semibold text-green-300 bg-green-500/20 rounded-full">Pahlawan untuk Bumi</span>
                         <h1 className="text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white leading-tight"> <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-teal-500">Aksi Iklim Nyata,</span> Dibuat Seru & Terukur.</h1>
