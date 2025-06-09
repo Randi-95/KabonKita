@@ -4,11 +4,6 @@ import { supabase } from "../supabaseClient";
 
 function LoginPage() {
   const navigate = useNavigate();
-
-  const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-  const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-
-  console.log(supabaseUrl, supabaseAnonKey)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
