@@ -11,6 +11,11 @@ function LeaderboardPage() {
                     <Trophy size="26px" color="#FFC107"/>
                     <h2 className="text-gray-200 font-mono text-2xl">Papan Peringkat</h2>
                 </div>
+
+                
+            {/*
+     tes
+     */}
                 
                 <div className="grid grid-cols-3 mb-10  m-2 bg-gray-800 rounded-md">
                     <Link to="/" className="flex flex-col gap-2">
