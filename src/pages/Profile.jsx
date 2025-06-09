@@ -4,10 +4,13 @@ import NavDashboard from "../fragments/navDashboard";
 import { Headphones, Info } from "lucide-react";
 import { useAuth } from "../hooks/useAuth";
 import { Loader } from "react-feather";
+import { supabase } from "../supabaseClient";
+import { useNavigate } from "react-router-dom";
+import AlertLogin from "../component/alertLogin";
 
 function ProfilePage() {
   const { session, loading, profile } = useAuth();
-
+  const navigate = useNavigate();
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen bg-background">
@@ -19,11 +22,29 @@ function ProfilePage() {
 
   if (!session) {
     return (
-      <div>
-        Silakan <a href="/login">login</a>.
+      <div className="w-full h-screen justify-center items-center">
+        <AlertLogin />
       </div>
     );
   }
+
+  const handleLogOut = async () => {
+    try {
+      if (!window.confirm("apakah anda yakin ingin logout")) {
+        return;
+      }
+
+      const { error } = await supabase.auth.signOut();
+
+      if (error) throw new Error("gagal logout, error:", error);
+
+      navigate("/");
+      alert("anda telah berhasil logout");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
   return (
     <div className=" bg-background h-180">
       <NavDashboard />
@@ -40,12 +61,14 @@ function ProfilePage() {
 
         <div className="p-5 flex items-center gap-4 justify-center">
           <img
-            src="https://i.pravatar.cc/150?img=60"
+            src={profile?.profile_url}
             alt=""
             className="rounded-full w-25 border-2 border-primary"
           />
           <div className="flex flex-col gap-1">
-            <p className="text-gray-100 font-semibold text-xl">{profile?.nama}</p>
+            <p className="text-gray-100 font-semibold text-xl">
+              {profile?.nama}
+            </p>
             <div className="flex items-center border-2 border-primary w-fit p-1 px-2 gap-2 rounded-lg">
               <Star className="text-primary" size="20px" />
               <p className="text-primary">{profile?.points} Poin</p>
@@ -132,7 +155,10 @@ function ProfilePage() {
               />
             </svg>
           </button>
-          <button className="flex items-center justify-center border-2 border-primary w-full py-4 px-2 gap-2 rounded-lg">
+          <button
+            onClick={() => handleLogOut()}
+            className="cursor-pointer flex items-center justify-center border-2 border-primary w-full py-4 px-2 gap-2 rounded-lg"
+          >
             <LogOut className="text-primary" size="30px" />
             <p className="text-primary text-xl font-semibold">Logout</p>
           </button>

@@ -13,14 +13,23 @@ import NavDashboard from "../fragments/navDashboard";
 import React, { useState, useEffect, useCallback } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { Link } from "react-router-dom";
+import AlertLogin from "../component/alertLogin";
 
 function LeaderboardPageGemini() {
   const [leaderboardData, setLeaderboardData] = useState([]);
-  const [activeTab, setActiveTab] = useState("rt"); // Default ke 'rt'
+  const [activeTab, setActiveTab] = useState("rt");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
   const { session } = useAuth();
+
+  if (!session) {
+    return (
+      <div className="w-full h-screen justify-center items-center">
+        <AlertLogin />
+      </div>
+    );
+  }
+
   const API_BACKEND_URL =
     import.meta.env.VITE_API_BACKEND_URL || "http://localhost:3321";
 
@@ -44,6 +53,7 @@ function LeaderboardPageGemini() {
       );
 
       const data = await response.json();
+      console.log(data)
       if (!response.ok) {
         throw new Error(data.message || "Gagal memuat data leaderboard.");
       }
@@ -179,7 +189,7 @@ const PodiumItem = ({ user }) => {
       }`}
     >
       <img
-        src={user.avatar_url || `https://i.pravatar.cc/150?u=${user.id}`}
+        src={user.profile_url}
         alt={`Avatar Juara ${user.rank}`}
         className={`object-cover rounded-2xl z-0 border-2 ${
           style.border
@@ -237,12 +247,12 @@ const RankItem = ({ user }) => (
       {user.rank}
     </span>
     <img
-      src={user.avatar_url || `https://i.pravatar.cc/150?u=${user.id}`}
-      alt={`Avatar ${user.name}`}
+      src={user?.profile_url}
+      alt={`Avatar ${user.nama}`}
       className="w-10 h-10 rounded-full ml-2 object-cover"
     />
     <div className="flex-grow ml-4">
-      <p className="font-semibold text-white text-sm font-mono">{user.name}</p>
+      <p className="font-semibold text-white text-sm font-mono">{user.nama}</p>
     </div>
     <div className="text-right">
       <p className="text-md font-bold text-white">

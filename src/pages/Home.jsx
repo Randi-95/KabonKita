@@ -5,7 +5,6 @@ import {
 } from 'react-feather';
 import { Link } from 'react-router-dom';
 
-// Komponen FAQ Item untuk kebersihan kode
 const FaqItem = ({ faq, index, openFaq, setOpenFaq }) => {
     const isOpen = index === openFaq;
 

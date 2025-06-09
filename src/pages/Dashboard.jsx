@@ -12,6 +12,7 @@ import { useAuth } from "../hooks/useAuth";
 import { Loader } from "react-feather";
 import { useState, useEffect, useCallback } from "react";
 import { PlaceholderPodium } from "./Leaderboard";
+import AlertLogin from "../component/alertLogin";
 
 const PodiumItem = ({ user }) => {
   const styles = {
@@ -61,7 +62,7 @@ const PodiumItem = ({ user }) => {
       }`}
     >
       <img
-        src={user.avatar}
+        src={user.profile_url}
         alt={`Avatar Juara ${user.rank}`}
         className={`object-cover rounded-2xl z-0 border-2 ${
           style.border
@@ -189,8 +190,8 @@ function Dashboard() {
 
   if (!session) {
     return (
-      <div>
-        Silakan <a href="/login">login</a>.
+      <div className="w-full h-screen justify-center items-center">
+        <AlertLogin/>
       </div>
     );
   }
@@ -207,7 +208,7 @@ function Dashboard() {
         <div className="w-full p-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
             <img
-              src="https://i.pravatar.cc/150?img=60"
+              src={profile?.profile_url}
               alt=""
               className="w-12 rounded-lg"
             />
