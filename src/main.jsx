@@ -11,10 +11,9 @@ import PageSubmit from './pages/SubmitAksi'
 import AdminPage from './pages/Admin'
 import { MisiSubmitProvider } from './context/misiSubmitContext'
 import LeaderboardPage from './pages/Leaderboard'
-import LeaderboardPageGemini from './pages/leaderboardGemini'
 import ProfilePage from './pages/Profile'
 import Home from './pages/Home'
-
+import { AuthProvider } from './context/authContext'
 
 const router = createBrowserRouter ([
   {
@@ -50,20 +49,20 @@ const router = createBrowserRouter ([
     element: <LeaderboardPage/>
   },
   {
-    path: "/peringkatGemini",
-    element: <LeaderboardPageGemini/>
-  },
-  {
     path: "/profile",
     element: <ProfilePage/>
   },
 ])
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <MisiSubmitProvider>
-      <RouterProvider router={router} />
-    </MisiSubmitProvider>
-  </StrictMode>
-)
+const rootElement = document.getElementById('root');
+const root = createRoot(rootElement);
 
+root.render(
+  <StrictMode>
+    <AuthProvider>
+      <MisiSubmitProvider>
+        <RouterProvider router={router} />
+      </MisiSubmitProvider>
+    </AuthProvider>
+  </StrictMode>
+);

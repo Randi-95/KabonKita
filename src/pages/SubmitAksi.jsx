@@ -1,5 +1,3 @@
-// src/pages/PageSubmit.jsx
-
 import { useState, useContext } from "react";
 import { X, Paperclip, Camera } from "react-feather";
 import { Navigation, Zap, Trash2 } from 'react-feather';
@@ -8,14 +6,11 @@ import { MisiSubmitContext } from "../context/misiSubmitContext";
 import NavDashboard from "../fragments/navDashboard";
 import RingkasanMisi from "../fragments/ringkasanMisi";
 
-// Objek 'misiYangDilaporkan' yang tidak terpakai sudah dihapus.
-
 function PageSubmit() {
   const [fileName, setFileName] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
-  // Ambil state dari context. Kita tidak perlu setAktifSubmit di sini.
   const { aktifSubmit } = useContext(MisiSubmitContext);
-  const navigate = useNavigate(); // Hook untuk navigasi
+  const navigate = useNavigate();
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -26,21 +21,14 @@ function PageSubmit() {
   };
 
   const handleSubmit = () => {
-    // Di sini nanti Anda akan menambahkan logika untuk mengirim data ke backend
     if (!selectedFile) {
       alert("Silakan pilih file terlebih dahulu.");
       return;
     }
     alert(`Berhasil submit! File: ${fileName}`);
-    // Setelah berhasil, mungkin arahkan pengguna ke halaman lain
-    // navigate('/misi-selesai');
   };
   
-  // ====================================================================
-  // === PERBAIKAN UTAMA: Pengecekan sebelum render ===
-  // ====================================================================
-  // Jika aktifSubmit masih null (misalnya, setelah refresh atau akses langsung)
-  // maka kita tampilkan pesan dan link untuk kembali.
+
   if (!aktifSubmit) {
     return (
       <div className="min-h-screen bg-white dark:bg-background flex items-center justify-center">
@@ -57,8 +45,6 @@ function PageSubmit() {
     );
   }
 
-  // Jika kode sampai di sini, kita 100% yakin 'aktifSubmit' sudah berisi data.
-  // Sehingga aman untuk me-render JSX di bawah ini.
   return (
     <div className="min-h-screen bg-background">
       <div className="hidden lg:block">
@@ -73,7 +59,6 @@ function PageSubmit() {
           </Link>
         </div>
 
-        {/* Sekarang bagian ini aman dari error 'null' */}
         <div className="p-4">
           <RingkasanMisi
             title={aktifSubmit.judul}
@@ -81,12 +66,11 @@ function PageSubmit() {
             type={aktifSubmit.kategori}
             typeColor={aktifSubmit.typeColor}
             points={aktifSubmit.point}
-            iconName={aktifSubmit.icon} // Kirim nama ikon sebagai string
+            iconName={aktifSubmit.icon} 
             borderColor={aktifSubmit.borderColor}
           />
         </div>
 
-        {/* Bagian untuk upload bukti foto */}
         <div className="flex justify-between items-center p-5">
           <div className="flex items-center gap-2">
             <div className="bg-secondary w-fit p-4 rounded-lg">
@@ -115,7 +99,6 @@ function PageSubmit() {
           />
         </div>
 
-        {/* Tombol Submit */}
         <div className="px-5 pb-10">
           <button
             onClick={handleSubmit}
