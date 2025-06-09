@@ -61,7 +61,7 @@ function LoginPage() {
         navigate("/admin");
       } else {
         alert("Login berhasil!");
-        navigate("/");
+        navigate("/Home");
       }
     } catch (err) {
       console.error("Login Gagal:", err);
