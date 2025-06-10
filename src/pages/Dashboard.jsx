@@ -234,7 +234,7 @@ function Dashboard() {
         <div className="md:justify-between gap-4 lg:w-[95%] s:mx-3">
           <div className="lg:grid lg:grid-cols-2 mb-5 lg:items-center">
             <div className="m-4 lg:flex lg:items-center lg:flex-col lg:justify-evenly h-full">
-              <img src="/benner.jpg" alt="" className="rounded-xl shadow-xl" />
+              <img src="/benner.webp" alt="" className="rounded-xl shadow-xl" />
               <Link
                 to="/peringkat"
                 className="w-[95%] p-3 rounded-xl mx-auto lg:flex justify-center bg-primary hidden"
@@ -266,7 +266,7 @@ function Dashboard() {
                 >
                   <SwiperSlide>
                     <div className="bg-secondary rounded-lg border-b-2 border-gray-500 shadow-xl">
-                      <img src="/sepeda.jpg" alt="" className="rounded-t-lg" />
+                      <img src="/sepeda.webp" alt="" className="rounded-t-lg" />
                       <div className="p-2">
                         <h2 className="text-gray-300 text-xl font-bold">
                           Ekspedisi Gowes Pagi
@@ -282,7 +282,7 @@ function Dashboard() {
 
                   <SwiperSlide>
                     <div className="bg-secondary rounded-lg border-b-2 border-gray-500 shadow-xl">
-                      <img src="/lampu.jpg" alt="" className="rounded-t-lg" />
+                      <img src="/lampu.webp" alt="" className="rounded-t-lg" />
                       <div className="p-2">
                         <h2 className="text-gray-300 text-xl font-bold">
                           Operasi Senyap Listrik
@@ -298,7 +298,7 @@ function Dashboard() {
 
                   <SwiperSlide>
                     <div className="bg-secondary rounded-lg border-b-2 border-gray-500 shadow-xl">
-                      <img src="/botol.jpg" alt="" className="rounded-t-lg" />
+                      <img src="/botol.webp" alt="" className="rounded-t-lg" />
                       <div className="p-2">
                         <h2 className="text-gray-300 text-xl font-bold">
                           Misi Botol Abadi Bersih
