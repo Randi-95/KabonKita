@@ -67,7 +67,7 @@ function PageSubmit() {
         <div className="w-full p-4 flex justify-between items-center">
           <p></p>
           <h2 className="text-gray-200 font-bold text-xl">Laporkan Aksimu</h2>
-          <Link to="/">
+          <Link to="/Home">
             <X className="text-gray-200" />
           </Link>
         </div>
