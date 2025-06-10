@@ -74,6 +74,7 @@ function LeaderboardPageGemini() {
       setLoading(false);
     }
   }, [session, activeTab]);
+
   useEffect(() => {
     fetchLeaderboard();
   }, [fetchLeaderboard]);

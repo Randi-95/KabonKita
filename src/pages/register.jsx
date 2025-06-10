@@ -1,9 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-// API URL untuk data wilayah
 const API_WILAYAH_URL = "https://www.emsifa.com/api-wilayah-indonesia/api";
-// API URL untuk backend Anda (ambil dari .env)
 const API_BACKEND_URL = import.meta.env.VITE_API_BACKEND_URL || 'http://localhost:3321';
 
 function RegisterPage() {
@@ -15,12 +13,10 @@ function RegisterPage() {
     const [kecamatanList, setKecamatanList] = useState([]);
     const [kelurahanList, setKelurahanList] = useState([]);
 
-    // State untuk menyimpan ID wilayah yang dipilih
     const [selectedProvinsi, setSelectedProvinsi] = useState("");
     const [selectedKabupaten, setSelectedKabupaten] = useState("");
     const [selectedKecamatan, setSelectedKecamatan] = useState("");
 
-    // State untuk menampung semua data form yang akan dikirim
     const [formData, setFormData] = useState({
         nama: "",
         email: "",
@@ -54,20 +50,17 @@ function RegisterPage() {
         }
     }, []);
 
-    // useEffect untuk memicu pengambilan data secara berantai
     useEffect(() => { fetchWilayah(`${API_WILAYAH_URL}/provinces.json`, setProvinsiList, 'provinsi'); }, [fetchWilayah]);
     useEffect(() => { if (selectedProvinsi) fetchWilayah(`${API_WILAYAH_URL}/regencies/${selectedProvinsi}.json`, setKabupatenList, 'kabupaten'); }, [selectedProvinsi, fetchWilayah]);
     useEffect(() => { if (selectedKabupaten) fetchWilayah(`${API_WILAYAH_URL}/districts/${selectedKabupaten}.json`, setKecamatanList, 'kecamatan'); }, [selectedKabupaten, fetchWilayah]);
     useEffect(() => { if (selectedKecamatan) fetchWilayah(`${API_WILAYAH_URL}/villages/${selectedKecamatan}.json`, setKelurahanList, 'kelurahan'); }, [selectedKecamatan, fetchWilayah]);
 
-    // Handler untuk input biasa
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         const isNumeric = ['rt', 'rw'].includes(name);
         setFormData(prev => ({ ...prev, [name]: isNumeric ? parseInt(value, 10) || '' : value }));
     };
 
-    // Handler khusus untuk dropdown alamat
     const handleAlamatChange = (event, level) => {
         const id = event.target.value;
         const name = event.target.options[event.target.selectedIndex].text;
@@ -91,7 +84,6 @@ function RegisterPage() {
         }
     };
 
-    // Handler untuk submit form
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         setIsSubmitting(true);
@@ -126,14 +118,13 @@ function RegisterPage() {
                 <div className="p-8 bg-background h-full rounded-tl-[80px] lg:rounded-tl-[100px] lg:flex lg:justify-center lg:flex-col">
                     <h1 className="text-3xl lg:text-6xl text-center font-semibold lg:font-bold text-primary mb-8">Daftar</h1>
                     
-                    {/* Menggunakan struktur JSX asli Anda dengan tambahan properti */}
                     <form onSubmit={handleFormSubmit} className="space-y-6">
                         <div>
                             <label className="block text-sm font-medium text-gray-200 mb-2">Username</label>
                             <input 
-                                type="text" // Diperbaiki dari 'email' menjadi 'text'
-                                name="nama" // Ditambahkan untuk state management
-                                onChange={handleInputChange} // Ditambahkan
+                                type="text" 
+                                name="nama"
+                                onChange={handleInputChange} 
                                 className="w-full px-0 py-4 border-0 border-b border-gray-200 bg-transparent text-white placeholder-gray-400 focus:border-primary focus:outline-none focus:ring-0" 
                                 placeholder="Jhon Doe"
                                 required
@@ -144,8 +135,8 @@ function RegisterPage() {
                             <label className="block text-sm font-medium text-gray-200 mb-2">Email</label>
                             <input 
                                 type="email"
-                                name="email" // Ditambahkan
-                                onChange={handleInputChange} // Ditambahkan
+                                name="email"
+                                onChange={handleInputChange}
                                 className="w-full px-0 py-4 border-0 border-b border-gray-200 bg-transparent text-white placeholder-gray-400 focus:border-primary focus:outline-none focus:ring-0" 
                                 placeholder="yourname@email.com"
                                 required
@@ -156,8 +147,8 @@ function RegisterPage() {
                             <label className="block text-sm font-medium text-gray-200 mb-2">Password</label>
                             <input 
                                 type="password"
-                                name="password" // Ditambahkan
-                                onChange={handleInputChange} // Ditambahkan
+                                name="password" 
+                                onChange={handleInputChange} 
                                 className="w-full px-0 py-4 border-0 border-b border-gray-200 bg-transparent text-white placeholder-gray-400 focus:border-primary focus:outline-none focus:ring-0" 
                                 placeholder="••••••••"
                                 required
@@ -168,8 +159,8 @@ function RegisterPage() {
                             <div>
                                 <label className="block text-sm font-medium text-gray-200 mb-2">Jenis Kelamin</label>
                                 <select 
-                                    name="jenisKelamin" // Ditambahkan
-                                    onChange={handleInputChange} // Ditambahkan
+                                    name="jenisKelamin" 
+                                    onChange={handleInputChange} 
                                     className="w-full px-0 py-4 border-0 border-b border-gray-200 bg-background text-white placeholder-gray-400 focus:border-primary focus:outline-none focus:ring-0"
                                     required
                                 >

@@ -1,10 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NavAdmin from "../fragments/navAdmin";
 import { useAuth } from "../hooks/useAuth";
 import AlertLogin from "../component/alertLogin";
 import { Loader } from "react-feather";
 
-// DATA DUMMY (Biasanya ini didapatkan dari API)
+const kegiatanPendingResponse = [
+  {
+    id: "3870be75-873e-4614-94ba-f9e07e6f931d",
+    created_at: "2025-06-10T04:25:55.803628+00:00",
+    deskripsi: "menggunakan botol ",
+    file_path:
+      "verifikasi/dd8f2b35-d8f2-42d9-b916-ae3bf4eafffd/1749529554974-Cuplikan layar 2024-09-16 210038.png",
+    point_kegiatan: 10,
+    user_profile: {
+      nama: "rafi andi",
+      email: "rafiandi@gmail.com",
+    },
+  },
+];
+
 const initialActivities = [
   {
     id: 1,
@@ -32,7 +46,6 @@ const initialActivities = [
   },
 ];
 
-// KOMPONEN MODAL (didefinisikan di file yang sama untuk kemudahan)
 const VerificationModal = ({ isOpen, onClose, activity }) => {
   if (!isOpen || !activity) {
     return null;
@@ -117,46 +130,63 @@ const VerificationModal = ({ isOpen, onClose, activity }) => {
   );
 };
 
-// KOMPONEN UTAMA HALAMAN
 function AdminPage() {
-  // State untuk mengontrol modal
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedActivity, setSelectedActivity] = useState(null);
-  const { profile, session, loading } = useAuth();
+  const { profile, session } = useAuth();
+  const [loading, setLoading] = useState(true)
+
+    const API_BACKEND_URL =
+    import.meta.env.VITE_API_BACKEND_URL;
+
+  const fetchKegiatanPending = () => {
+    setLoading(true)
+
+    try{
+      const response = fetch(`${API_BACKEND_URL}/api/admin/kegiatan-pending`,{
+        headers: {
+          Authorization: `bearer ${session.access_token}`
+        }
+      })
+
+      const data = response.json()
+    } catch(error){
+
+    }
+  };
+
+  useEffect(() => {}, []);
 
   if (loading) {
-    return(
-    <div className="flex justify-center items-center h-screen bg-background">
-      <Loader className="animate-spin text-primary" size={48} />
-      <p className="ml-4 text-lg text-gray-300">Memuat data...</p>
-    </div>
-    )
+    return (
+      <div className="flex justify-center items-center h-screen bg-background">
+        <Loader className="animate-spin text-primary" size={48} />
+        <p className="ml-4 text-lg text-gray-300">Memuat data...</p>
+      </div>
+    );
   }
 
   const role = profile?.role;
 
   if (role !== "admin") {
-    return(
-    <div className="w-full h-screen justify-center items-center">
-      <AlertLogin />
-    </div>
-    )
+    return (
+      <div className="w-full h-screen justify-center items-center">
+        <AlertLogin />
+      </div>
+    );
   }
 
-  // Fungsi untuk membuka modal
   const handleOpenModal = (activity) => {
     setSelectedActivity(activity);
     setIsModalOpen(true);
   };
 
-  // Fungsi untuk menutup modal
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setSelectedActivity(null);
   };
 
   return (
-    // h-[9999px] saya ganti menjadi min-h-screen agar tingginya minimal seukuran layar
     <div className="min-h-screen bg-white dark:bg-background">
       <NavAdmin />
 
@@ -237,7 +267,6 @@ function AdminPage() {
         </div>
       </div>
 
-      {/* Render Modal di sini */}
       <VerificationModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
