@@ -261,7 +261,14 @@ function Dashboard() {
                 <Swiper
                   modules={[Navigation, Pagination]}
                   spaceBetween={8}
-                  slidesPerView={2.1}
+                  breakpoints={{
+                  0: {
+                    slidesPerView: 1.4, 
+                  },
+                  360: {
+                    slidesPerView: 2.1, 
+                  },
+                }}
                   grabCursor={true}
                 >
                   <SwiperSlide>
