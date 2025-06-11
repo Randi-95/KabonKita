@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { data, Link, useNavigate } from "react-router-dom";
+import { getRandomAvatar, avatarPool } from "../utils/avatarUrl";
 
 const API_WILAYAH_URL = "https://www.emsifa.com/api-wilayah-indonesia/api";
 const API_BACKEND_URL = import.meta.env.VITE_API_BACKEND_URL || 'http://localhost:3321';
@@ -7,7 +8,6 @@ const API_BACKEND_URL = import.meta.env.VITE_API_BACKEND_URL || 'http://localhos
 function RegisterPage() {
     const navigate = useNavigate();
 
-    // State untuk data dari API wilayah
     const [provinsiList, setProvinsiList] = useState([]);
     const [kabupatenList, setKabupatenList] = useState([]);
     const [kecamatanList, setKecamatanList] = useState([]);
@@ -29,14 +29,13 @@ function RegisterPage() {
         rt: "",
         rw: "",
         role: "user",
+        profile_url: ""
     });
 
-    // State untuk loading dan pesan
     const [loading, setLoading] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [message, setMessage] = useState('');
 
-    // Fungsi-fungsi untuk mengambil data wilayah
     const fetchWilayah = useCallback(async (url, setter, loadingKey) => {
         setLoading(prev => ({ ...prev, [loadingKey]: true }));
         try {
@@ -89,10 +88,16 @@ function RegisterPage() {
         setIsSubmitting(true);
         setMessage('');
         try {
+            const randomAvatarUrl = getRandomAvatar(formData.jenisKelamin)
+            const dataToSubmit = {
+                ...formData,
+                profile_url: randomAvatarUrl
+            }
+
             const response = await fetch(`${API_BACKEND_URL}/api/auth/register`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData),
+                body: JSON.stringify(dataToSubmit),
             });
             const result = await response.json();
             if (!response.ok) throw new Error(result.error || 'Registrasi gagal.');

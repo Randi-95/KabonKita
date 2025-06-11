@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { X, Paperclip, Camera } from "react-feather";
 import { Navigation, Zap, Trash2 } from "react-feather";
-import { Link, useNavigate } from "react-router-dom"; // Impor useNavigate untuk redirect
+import { Form, Link, useNavigate } from "react-router-dom";
 import { MisiSubmitContext } from "../context/misiSubmitContext";
 import NavDashboard from "../fragments/navDashboard";
 import RingkasanMisi from "../fragments/ringkasanMisi";
@@ -9,11 +9,79 @@ import AlertLogin from "../component/alertLogin";
 import { useAuth } from "../hooks/useAuth";
 
 function PageSubmit() {
+  const { aktifSubmit } = useContext(MisiSubmitContext);
+  const { session, profile } = useAuth();
+  const navigate = useNavigate();
+
   const [fileName, setFileName] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
-  const { aktifSubmit } = useContext(MisiSubmitContext);
-  const navigate = useNavigate();
-  const { session, loading, profile } = useAuth();
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const API_BACKEND_URL = import.meta.env.VITE_API_BACKEND_URL;
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      if (file.size > 5 * 1024 * 1024) {
+        setMessage("Error: Ukuran file terlalu besar (Max 5MB).");
+        return;
+      }
+      if (!file.type.startsWith("image/")) {
+        setMessage("Error: Hanya file gambar yang diizinkan.");
+        return;
+      }
+      setFileName(file.name);
+      setSelectedFile(file);
+      setMessage("");
+    }
+  };
+
+  const handleSubmit = async () => {
+    if (!selectedFile) {
+      setMessage("file belum di pilih");
+      return;
+    }
+    if (!session) {
+      setMessage("sesi tidak ditemukan");
+      return;
+    }
+    if (!aktifSubmit) {
+      setMessage("misi aktif tidak ditemukan");
+      return;
+    }
+
+    setLoading(true);
+    setMessage("sedang memproses..");
+
+    try {
+      const formData = new FormData();
+      formData.append("buktiFoto", selectedFile);
+      formData.append("deskripsi", aktifSubmit.judul);
+      formData.append("point_pending", aktifSubmit.point);
+
+      const response = await fetch(`${API_BACKEND_URL}/api/kegiatan`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer: ${session.access_token}`,
+        },
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error(result.message || "Gagal mengirim bukti kegiatan.");
+      }
+      const result = await response.json();
+
+      alert(`Berhasil uploud ${result.message}`);
+      navigate("/home");
+    } catch (err) {
+      setMessage(`Error: ${err.message}`);
+      console.error("Submit Gagal:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   if (!session) {
     return (
@@ -22,22 +90,6 @@ function PageSubmit() {
       </div>
     );
   }
-  
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      setFileName(file.name);
-      setSelectedFile(file);
-    }
-  };
-
-  const handleSubmit = () => {
-    if (!selectedFile) {
-      alert("Silakan pilih file terlebih dahulu.");
-      return;
-    }
-    alert(`Berhasil submit! File: ${fileName}`);
-  };
 
   if (!aktifSubmit) {
     return (
@@ -114,12 +166,14 @@ function PageSubmit() {
           />
         </div>
 
+        {message && <p className={`px-5 text-center font-semibold ${message.startsWith('Error') ? 'text-red-500' : 'text-green-500'}`}>{message}</p>}
+
         <div className="px-5 pb-10">
           <button
             onClick={handleSubmit}
             className="bg-green-600 w-full shadow-xl hover:bg-green-800 text-white font-bold py-2 px-6 rounded-lg"
           >
-            Submit Aksi
+            {loading ? 'Mengirim...' : 'Submit Aksi'}
           </button>
         </div>
       </div>

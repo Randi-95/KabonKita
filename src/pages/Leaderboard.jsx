@@ -22,14 +22,6 @@ function LeaderboardPageGemini() {
   const [error, setError] = useState(null);
   const { session } = useAuth();
 
-  if (!session) {
-    return (
-      <div className="w-full h-screen justify-center items-center">
-        <AlertLogin />
-      </div>
-    );
-  }
-
   const API_BACKEND_URL =
     import.meta.env.VITE_API_BACKEND_URL || "http://localhost:3321";
 
@@ -53,7 +45,7 @@ function LeaderboardPageGemini() {
       );
 
       const data = await response.json();
-      console.log(data)
+      console.log(data);
       if (!response.ok) {
         throw new Error(data.message || "Gagal memuat data leaderboard.");
       }
@@ -78,6 +70,14 @@ function LeaderboardPageGemini() {
   useEffect(() => {
     fetchLeaderboard();
   }, [fetchLeaderboard]);
+
+  if (!session) {
+    return (
+      <div className="w-full h-screen justify-center items-center">
+        <AlertLogin />
+      </div>
+    );
+  }
 
   const topThree = leaderboardData.slice(0, 3);
   const restOfLeaderboard = leaderboardData.slice(3);
@@ -219,7 +219,7 @@ const PodiumItem = ({ user }) => {
         <div className="flex items-center gap-1">
           <Star size={12} className="text-yellow-400" fill="#f7b733" />
           <p className="text-gray-300 text-xs font-semibold">
-            {user.points.toLocaleString()} Poin
+            {user?.points} Poin
           </p>
         </div>
       </div>

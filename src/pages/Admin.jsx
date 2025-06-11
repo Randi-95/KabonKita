@@ -179,7 +179,7 @@ const VerificationModal = ({ isOpen, onClose, activity, token }) => {
               ref={pointUser}
               type="number"
               id="poin"
-              value={activity.point_kegiatan || 0}
+              value={activity.point_pending || 0}
               defaultValue="10"
               className="w-full p-2 bg-gray-900 border border-gray-600 text-gray-200 rounded-md focus:ring-2 focus:ring-primary focus:border-primary transition"
             />

@@ -179,19 +179,19 @@ function Dashboard() {
     fetchLeaderboard();
   }, [fetchLeaderboard]);
 
-  if (authLoading || statsLoading) {
-    return (
-      <div className="flex justify-center items-center h-screen bg-background">
-        <Loader className="animate-spin text-primary" size={48} />
-        <p className="ml-4 text-lg text-gray-300">Memuat data...</p>
-      </div>
-    );
-  }
+  // if (authLoading || statsLoading) {
+  //   return (
+  //     <div className="flex justify-center items-center h-screen bg-background">
+  //       <Loader className="animate-spin text-primary" size={48} />
+  //       <p className="ml-4 text-lg text-gray-300">Memuat data...</p>
+  //     </div>
+  //   );
+  // }
 
   if (!session) {
     return (
       <div className="w-full h-screen justify-center items-center">
-        <AlertLogin/>
+        <AlertLogin />
       </div>
     );
   }
@@ -213,9 +213,15 @@ function Dashboard() {
               className="w-12 rounded-lg"
             />
             <div className="">
-              <h2 className="text-gray-400 font-bold text-xs">
-                Halo, {profile?.nama}
-              </h2>
+              {authLoading ? (
+                <>
+                  <h2 className="text-gray-400 font-bold text-xs">memuat..</h2>
+                </>
+              ) : (
+                <h2 className="text-gray-400 font-bold text-xs">
+                  Halo, {profile?.nama}
+                </h2>
+              )}
               <p className="text-gray-200 font-semibold text-lg -mt-1">
                 Mulai Aksi Hijaumu
               </p>
@@ -223,7 +229,7 @@ function Dashboard() {
           </div>
           <div className="flex gap-2">
             <Link to="/riwayat" className="bg-secondary h-fit p-2 rounded-lg">
-              <Clock className="text-white"/>
+              <Clock className="text-white" />
             </Link>
             <div className="bg-secondary h-fit p-2 rounded-lg">
               <User className="text-white" />
@@ -262,13 +268,13 @@ function Dashboard() {
                   modules={[Navigation, Pagination]}
                   spaceBetween={8}
                   breakpoints={{
-                  0: {
-                    slidesPerView: 1.4, 
-                  },
-                  360: {
-                    slidesPerView: 2.1, 
-                  },
-                }}
+                    0: {
+                      slidesPerView: 1.4,
+                    },
+                    360: {
+                      slidesPerView: 2.1,
+                    },
+                  }}
                   grabCursor={true}
                 >
                   <SwiperSlide>
@@ -335,8 +341,10 @@ function Dashboard() {
               </div>
 
               <div className="flex justify-around items-end p-4 gap-3 mt-4">
-                {leaderboardLoading ? (
-                  <p className="text-gray-400">Memuat peringkat...</p>
+                {authLoading || statsLoading ? (
+                  <div className="flex justify-center items-center p-10">
+                    <Loader className="animate-spin text-primary" size={48} />
+                  </div>
                 ) : (
                   <>
                     {winner2 ? (
@@ -359,10 +367,6 @@ function Dashboard() {
               </div>
             </div>
 
-
-            {/*
-     tes
-     */}
             <div className="px-4 flex flex-col justify-evenly ">
               <div className="flex justify-center">
                 <div className="bg-gradient-to-br w-full from-primary via-primary to-green-900 rounded-2xl p-6 relative overflow-hidden">
@@ -395,9 +399,16 @@ function Dashboard() {
                       <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center mr-2">
                         <Star className="w-3 h-3 text-white" />
                       </div>
-                      <span className="text-gray-300 text-sm">
-                        Total {profile?.points} Poin Hijau telah terkumpul.
-                      </span>
+                      {authLoading ? (
+                        <span className="text-gray-300 text-sm">
+                          Memuat data...
+                        </span>
+                      ) : (
+                        <span className="text-gray-300 text-sm">
+                          Total {profile?.points || 0} Poin Hijau telah
+                          terkumpul.
+                        </span>
+                      )}
                     </div>
                   </div>
 

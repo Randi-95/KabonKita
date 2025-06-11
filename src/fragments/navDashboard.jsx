@@ -60,7 +60,7 @@ function NavDashboard() {
             <div className="lg:border flex w-full p-2 rounded-lg gap-1">
                 <img src={profile?.profile_url} alt="" className="w-10 rounded-full z-0 "/>
                 <div className="lg:flex flex-col hidden">
-                    <p className="text-xs lg:text-base lg:font-medium group-hover:text-primary">Randi </p>
+                    <p className="text-xs lg:text-base lg:font-medium group-hover:text-primary">{profile?.nama}</p>
                     <p className="text-xs lg:text-[12px] lg:font-medium group-hover:text-primary -mt-1">{profile?.points || 0} poin </p>
                 </div>
             </div>
