@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import NavAdmin from "../fragments/navAdmin";
 import { useAuth } from "../hooks/useAuth";
 import AlertLogin from "../component/alertLogin";
 import { Loader } from "react-feather";
+import { formatToDate } from "../utils/formatDate";
 
 const kegiatanPendingResponse = [
   {
@@ -19,61 +20,126 @@ const kegiatanPendingResponse = [
   },
 ];
 
-const initialActivities = [
-  {
-    id: 1,
-    date: "7/6/2025,",
-    time: "15.33.59",
-    user: "rafi andi",
-    email: "rafiandiprayitno9528@gmail.com",
-    description: "bersepeda",
-  },
-  {
-    id: 2,
-    date: "7/6/2025,",
-    time: "16.14.57",
-    user: "rafi andi",
-    email: null,
-    description: "menanam",
-  },
-  {
-    id: 3,
-    date: "8/6/2025,",
-    time: "09.30.00",
-    user: "Siti Aminah",
-    email: "siti.a@example.com",
-    description: "mengikuti webinar",
-  },
-];
+const fetchGenerateUrl = async (file_path, token) => {
+  try {
+    const API_BACKEND_URL = import.meta.env.VITE_API_BACKEND_URL;
 
-const VerificationModal = ({ isOpen, onClose, activity }) => {
+    const response = await fetch(`${API_BACKEND_URL}/api/admin/generate-url`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        filePath: file_path,
+      }),
+    });
+
+    console.log(file_path);
+    if (!response.ok) {
+      throw Error("gagal mendapatkan url");
+    }
+
+    const dataUrl = await response.json();
+
+    return dataUrl.signedUrl;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const VerificationModal = ({ isOpen, onClose, activity, token }) => {
+  const [imageUrl, setImageUrl] = useState(null);
+  const [isLoadingImage, setIsLoadingImage] = useState(false);
+  const [errorImage, setErrorImage] = useState("");
+  const pesanAdmin = useRef(null);
+  const pointUser = useRef(0);
+
+  useEffect(() => {
+    if (isOpen && activity && token) {
+      const getImage = async () => {
+        try {
+          setIsLoadingImage(true);
+          setImageUrl(null);
+          setErrorImage("");
+
+          const url = await fetchGenerateUrl(activity.file_path, token);
+
+          setImageUrl(url);
+          return url;
+        } catch (err) {
+          console.error(err);
+        } finally {
+          setIsLoadingImage(false);
+        }
+      };
+
+      getImage();
+    }
+  }, [isOpen, activity, token]);
+
   if (!isOpen || !activity) {
     return null;
   }
 
+  const handlerVerifikasi = async (keputusan) => {
+    console.log(keputusan);
+
+    try {
+      const API_BACKEND_URL = import.meta.env.VITE_API_BACKEND_URL;
+
+      const response = await fetch(`${API_BACKEND_URL}/api/admin/verifikasi`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          kegiatanId: activity.id,
+          keputusan: keputusan,
+          pesan_admin: pesanAdmin.current.value,
+        }),
+      });
+
+      if (!response.ok) {
+        console.log(`gagal verifikasi`);
+      }
+      const data = await response.json();
+
+      if (data) {
+        onClose();
+        window.location.reload()
+      }
+
+      console.log(data)
+      return data;
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
-    // Backdrop / Overlay
     <div
       onClick={onClose}
-      className="fixed inset-0 bg-black bg-opacity-70 z-50 flex justify-center items-center p-4"
+      className="overflow-auto fixed inset-0 bg-black bg-opacity-70 z-50 flex justify-center items-center p-4"
     >
-      {/* Konten Modal - Disesuaikan dengan tema gelap */}
       <div
         onClick={(e) => e.stopPropagation()}
         className="bg-gray-800 border border-gray-700 rounded-lg shadow-xl w-full max-w-2xl p-6 relative"
       >
-        {/* Header */}
         <div className="border-b border-gray-600 pb-4 mb-4">
-          <h3 className="text-xl font-bold text-gray-100">
-            Verifikasi Kegiatan oleh:{" "}
-            <span className="text-primary">{activity.user}</span>
-          </h3>
-          <p className="text-gray-400 mt-1">
-            Deskripsi: {activity.description}
-          </p>
+          <h3 className="text-xl font-bold text-gray-100">Bukti Kegiatan</h3>
+          {isLoadingImage && <Loader className="animate-spin text-primary" />}
+          {errorImage && <p className="text-red-500">{errorImage}</p>}
+          {imageUrl && !isLoadingImage && (
+            <img
+              src={imageUrl}
+              alt="Bukti kegiatan"
+              className="max-w-full max-h-[400px] rounded"
+            />
+          )}
         </div>
 
-        {/* Form */}
         <form>
           <h4 className="text-lg font-semibold text-gray-200 mb-3">
             Form Verifikasi
@@ -86,11 +152,21 @@ const VerificationModal = ({ isOpen, onClose, activity }) => {
               Catatan untuk User (Opsional):
             </label>
             <textarea
+              ref={pesanAdmin}
               id="catatan"
               rows="3"
               className="w-full p-2 bg-gray-900 border border-gray-600 text-gray-200 rounded-md focus:ring-2 focus:ring-primary focus:border-primary transition"
               placeholder="Contoh: Kegiatan sudah bagus, pertahankan!"
             ></textarea>
+          </div>
+          <div className="mb-4">
+            <label
+              htmlFor="catatan"
+              className="block text-sm font-medium text-gray-300 mb-1"
+            >
+              deskripsi kegiatan : 
+            </label>
+            <p className="text-white">{activity.deskripsi}</p>
           </div>
           <div>
             <label
@@ -100,21 +176,36 @@ const VerificationModal = ({ isOpen, onClose, activity }) => {
               Poin yang Diberikan (jika disetujui):
             </label>
             <input
+              ref={pointUser}
               type="number"
               id="poin"
+              value={activity.point_kegiatan || 0}
               defaultValue="10"
               className="w-full p-2 bg-gray-900 border border-gray-600 text-gray-200 rounded-md focus:ring-2 focus:ring-primary focus:border-primary transition"
             />
           </div>
         </form>
 
-        {/* Tombol Aksi */}
         <div className="flex justify-between items-center mt-6 pt-4 border-t border-gray-600">
           <div>
-            <button className="bg-primary hover:opacity-80 text-gray-900 font-bold py-2 px-4 rounded-lg mr-2 transition-opacity">
+            <button
+              onClick={() => {
+                const keputusan = "disetujui";
+                console.log(keputusan);
+                handlerVerifikasi(keputusan);
+              }}
+              className="bg-primary hover:opacity-80 text-gray-900 font-bold py-2 px-4 rounded-lg mr-2 transition-opacity"
+            >
               Setujui
             </button>
-            <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+            <button
+              onClick={() => {
+                const keputusan = "ditolak";
+                console.log(keputusan);
+                handlerVerifikasi(keputusan);
+              }}
+              className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition-colors"
+            >
               Tolak
             </button>
           </div>
@@ -134,28 +225,48 @@ function AdminPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedActivity, setSelectedActivity] = useState(null);
   const { profile, session } = useAuth();
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
+  const [dataKegiatan, setDataKegiatan] = useState([]);
 
-    const API_BACKEND_URL =
-    import.meta.env.VITE_API_BACKEND_URL;
+  const API_BACKEND_URL = import.meta.env.VITE_API_BACKEND_URL;
 
-  const fetchKegiatanPending = () => {
-    setLoading(true)
+  const fetchKegiatanPending = useCallback(async () => {
+    try {
+      setLoading(true);
 
-    try{
-      const response = fetch(`${API_BACKEND_URL}/api/admin/kegiatan-pending`,{
-        headers: {
-          Authorization: `bearer ${session.access_token}`
+      const response = await fetch(
+        `${API_BACKEND_URL}/api/admin/kegiatan-pending`,
+        {
+          headers: {
+            Authorization: `bearer ${session.access_token}`,
+          },
         }
-      })
+      );
 
-      const data = response.json()
-    } catch(error){
+      console.log(session.access_token);
+      const data = await response.json();
 
+      console.log(data);
+
+      setDataKegiatan(data);
+
+      if (!response.ok) {
+        throw new Error(`Gagal mengambil data, status: ${response.message}`);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
     }
-  };
+  }, [session]);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (session) {
+      fetchKegiatanPending();
+    } else {
+      setLoading(false);
+    }
+  }, [fetchKegiatanPending]);
 
   if (loading) {
     return (
@@ -196,10 +307,10 @@ function AdminPage() {
             Verifikasi Kegiatan Pending
           </h2>
         </div>
-        <button className="bg-primary w-full p-2 rounded-lg font-bold text-gray-900 text-xl">
+        <button onClick={() => window.location.reload()} className="cursor-pointer bg-primary w-full p-2 rounded-lg font-bold text-gray-900 text-xl">
           Refresh Daftar
         </button>
-
+        
         <div className="overflow-x-auto mt-10">
           <table className="min-w-full text-left">
             <thead className="border-b bg-secondary">
@@ -232,25 +343,26 @@ function AdminPage() {
             </thead>
 
             <tbody className="divide-y divide-gray-700">
-              {initialActivities.map((activity) => (
+              {dataKegiatan.map((activity) => (
                 <tr
                   key={activity.id}
                   className="hover:bg-gray-900 transition bg-gray-800 duration-150"
                 >
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-300">{activity.date}</div>
-                    <div className="text-sm text-gray-300">{activity.time}</div>
+                    <div className="text-sm text-gray-300">
+                      {formatToDate(activity.created_at)}
+                    </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm font-medium text-primary">
-                      {activity.user}
+                      {activity.user_profile.nama}
                     </div>
                     <div className="text-sm text-gray-200">
-                      {activity.email || "N/A"}
+                      {activity.user_profile.email || "N/A"}
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
-                    {activity.description}
+                    {activity.deskripsi}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <button
@@ -271,6 +383,7 @@ function AdminPage() {
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         activity={selectedActivity}
+        token={session.access_token}
       />
     </div>
   );
