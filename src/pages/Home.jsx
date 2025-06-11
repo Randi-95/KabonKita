@@ -242,6 +242,8 @@ function Home() {
                         </div>
                         </div>
 
+                        {/* tes */}
+
                         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
                         <div className="flex justify-center">
                             <div className="w-full max-w-md h-80 bg-slate-800 rounded-2xl flex items-center justify-center border border-dashed border-slate-700">
