@@ -71,7 +71,7 @@ function ProfilePage() {
             </p>
             <div className="flex items-center border-2 border-primary w-fit p-1 px-2 gap-2 rounded-lg">
               <Star className="text-primary" size="20px" />
-              <p className="text-primary">{profile?.points} Poin</p>
+              <p className="text-primary">{profile?.points || 0} Poin</p>
             </div>
           </div>
         </div>

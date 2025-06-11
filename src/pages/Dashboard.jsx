@@ -96,7 +96,7 @@ const PodiumItem = ({ user }) => {
         <div className="flex items-center gap-1">
           <Star size={12} className="text-yellow-400" fill="#f7b733" />
           <p className="text-gray-300 text-xs font-semibold">
-            {user.points.toLocaleString()} Poin
+            {user.points || 0} Poin
           </p>
         </div>
       </div>
