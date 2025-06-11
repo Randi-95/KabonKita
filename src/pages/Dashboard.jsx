@@ -279,7 +279,7 @@ function Dashboard() {
                           Ekspedisi Gowes Pagi
                         </h2>
                         <div className="flex items-center">
-                          <p className="text-green-400 font-semibold font-mono">
+                          <p className="text-green-400 text-xs md:text-lg font-semibold font-mono">
                             Mobilitas Hijau
                           </p>
                         </div>
@@ -295,7 +295,7 @@ function Dashboard() {
                           Operasi Senyap Listrik
                         </h2>
                         <div className="flex items-center">
-                          <p className="text-yellow-400 font-semibold font-mono">
+                          <p className="text-yellow-400 text-xs md:text-lg font-semibold font-mono">
                             Hemat Energi
                           </p>
                         </div>
@@ -311,7 +311,7 @@ function Dashboard() {
                           Misi Botol Abadi Bersih
                         </h2>
                         <div className="flex items-center">
-                          <p className="text-red-400 font-semibold font-mono">
+                          <p className="text-red-400 text-xs md:text-lg font-semibold font-mono">
                             Kebersihan
                           </p>
                         </div>
