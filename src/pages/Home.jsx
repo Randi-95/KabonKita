@@ -1,8 +1,8 @@
-import { Medal } from 'lucide-react';
+import { Github, Medal } from 'lucide-react';
 import React, { useState } from 'react';
 import {
     Menu, X, ArrowRight, Check, ChevronsRight, BarChart2, Layers, Users, 
-    ChevronDown, Twitter, Instagram, Linkedin, Mail, Camera
+    ChevronDown, Twitter, Instagram, Linkedin, Mail, Camera,
 } from 'react-feather';
 import { Link } from 'react-router-dom';
 
@@ -148,9 +148,8 @@ function Home() {
                             </ul>
                         </div>
                         <div className="order-1 lg:order-2 flex justify-center">
-                            <div className="w-full max-w-md h-80 bg-slate-800 rounded-2xl flex items-center justify-center border border-dashed border-slate-700">
-                                <img src="" alt="Ilustrasi yang menggambarkan perjalanan dari niat menjadi aksi nyata" className="hidden"/>
-                                <p className="text-slate-500">Placeholder untuk ilustrasi misi</p>
+                            <div className="w-full max-w-md h-50 bg-slate-800 rounded-2xl flex items-center justify-center border border-dashed border-slate-700">
+                                <img src="/commuunity.jpg" alt="Ilustrasi yang menggambarkan perjalanan dari niat menjadi aksi nyata" className="rounded-lg shadow-xl border-1 border-dashed border-primary"/>
                             </div>
                         </div>
                     </div>
@@ -309,10 +308,22 @@ function Home() {
                             <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">Mereka sudah membuktikan, aksi kecil punya dampak besar. Sekarang giliranmu!</p>
                         </div>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16">
-                           <div className="w-full h-48 md:h-64 bg-gray-800 rounded-lg flex items-end p-4"><img src="" alt="Contoh bukti misi: membawa tumbler" className="hidden"/><p className="text-sm text-gray-300">Misi: Bawa Tumbler ✅</p></div>
-                           <div className="w-full h-48 md:h-64 bg-gray-800 rounded-lg flex items-end p-4"><img src="" alt="Contoh bukti misi: bersepeda ke kantor" className="hidden"/><p className="text-sm text-gray-300">Misi: Bersepeda Hari Ini ✅</p></div>
-                           <div className="w-full h-48 md:h-64 bg-gray-800 rounded-lg flex items-end p-4"><img src="" alt="Contoh bukti misi: memilah sampah" className="hidden"/><p className="text-sm text-gray-300">Misi: Pilah Sampah ✅</p></div>
-                           <div className="w-full h-48 md:h-64 bg-gray-800 rounded-lg flex items-end p-4"><img src="" alt="Contoh bukti misi: menanam pohon" className="hidden"/><p className="text-sm text-gray-300">Misi: Tanam Pohon ✅</p></div>
+                            <div className="relative w-full h-48 md:h-64 bg-gray-800 rounded-lg overflow-hidden">
+                                <img src="/tumbler.jpg" alt="Contoh bukti misi: membawa tumbler" className="object-cover w-full h-full rounded-lg shadow-xl border-1 border-dashed border-primary" />
+                                <p className="absolute bottom-0 left-0 right-0 bg-black/50 text-sm text-gray-300 p-2">Misi: Bawa Tumbler ✅</p>
+                            </div>
+                            <div className="relative w-full h-48 md:h-64 bg-gray-800 rounded-lg overflow-hidden">
+                                <img src="/bersepeda.jpg" alt="Contoh bukti misi: bersepeda ke kantor" className="object-cover w-full h-full rounded-lg shadow-xl border-1 border-dashed border-primary" />
+                                <p className="absolute bottom-0 left-0 right-0 bg-black/50 text-sm text-gray-300 p-2">Misi: Bersepeda Hari Ini ✅</p>
+                            </div>
+                            <div className="relative w-full h-48 md:h-64 bg-gray-800 rounded-lg overflow-hidden">
+                                <img src="/memilah.jpg" alt="Contoh bukti misi: memilah sampah" className="object-cover w-full h-full rounded-lg shadow-xl border-1 border-dashed border-primary" />
+                                <p className="absolute bottom-0 left-0 right-0 bg-black/50 text-sm text-gray-300 p-2">Misi: Pilah Sampah ✅</p>
+                            </div>
+                            <div className="relative w-full h-48 md:h-64 bg-gray-800 rounded-lg overflow-hidden">
+                                <img src="/menanam.jpg" alt="Contoh bukti misi: menanam pohon" className="object-cover w-full h-full rounded-lg shadow-xl border-1 border-dashed border-primary" />
+                                <p className="absolute bottom-0 left-0 right-0 bg-black/50 text-sm text-gray-300 p-2">Misi: Tanam Pohon ✅</p>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -355,9 +366,10 @@ function Home() {
                             <h3 className="text-xl font-bold text-white">Karbon<span className="text-primary">Kita</span></h3>
                             <p className="mt-2 text-slate-400 max-w-xs">Platform gamifikasi untuk aksi iklim nyata. Mengubah kebiasaan, menyelamatkan planet.</p>
                             <div className="flex gap-5 mt-6">
-                                <a href="#" className="text-slate-500 hover:text-teal-400 transition-colors"><Twitter /></a>
-                                <a href="#" className="text-slate-500 hover:text-teal-400 transition-colors"><Instagram /></a>
-                                <a href="#" className="text-slate-500 hover:text-teal-400 transition-colors"><Linkedin /></a>
+                                <a href="https://x.com/Atreides176?t=_j4ejlRWO8tbGHtYecfd0w&s=09" className="text-slate-500 hover:text-teal-400 transition-colors" target="_blank"><Twitter /></a>
+                                <a href="https://www.instagram.com/renno.renn?igsh=Y2gxMzNueXM4amto" className="text-slate-500 hover:text-teal-400 transition-colors" target="_blank"><Instagram /></a>
+                                <a href="https://www.linkedin.com/in/moch-rafi-andi-prayitno-125b6531b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="text-slate-500 hover:text-teal-400 transition-colors" target="_blank"><Linkedin /></a>
+                                <a href="https://github.com/Randi-95" className="text-slate-500 hover:text-teal-400 transition-colors" target="_blank"><Github /></a>
                             </div>
                         </div>
                         
@@ -366,7 +378,7 @@ function Home() {
                             <ul className="mt-4 space-y-3">
                                 <li><a href="#fitur" className="text-slate-400 hover:text-teal-400">Fitur</a></li>
                                 <li><a href="#cara-kerja" className="text-slate-400 hover:text-teal-400">Cara Kerja</a></li>
-                                <li><a href="#" className="text-slate-400 hover:text-teal-400">Daftar Misi</a></li>
+                                <li><a href="#faq" className="text-slate-400 hover:text-teal-400">FAQ</a></li>
                             </ul>
                         </div>
                         
