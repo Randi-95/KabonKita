@@ -1,6 +1,7 @@
 import { ArrowLeft } from "react-feather";
 import NavDashboard from "../fragments/navDashboard";
 import { ArrowRight, Medal } from "lucide-react";
+import { Link } from "react-router-dom";
 
 function LencanaPage() {
     return(
@@ -10,9 +11,9 @@ function LencanaPage() {
 
               <div className="flex flex-col gap-30">
                 <div className="flex justify-between p-2 items-center">
-                    <div className="">
+                    <Link to="/home" className="">
                         <ArrowLeft className="text-gray-200"  size="30px"/>
-                    </div>
+                    </Link>
                     <h2 className="text-gray-200 font-semibold font-mono text-2xl">Lencana Randi</h2>
                     <div className="">
                         <Medal className="text-gray-200" size="30px"/>
@@ -27,7 +28,7 @@ function LencanaPage() {
                         </div>
                     </div>
 
-                    <div className="p-2 flex flex-col gap-2">
+                    <div className="px-2 flex flex-col gap-2">
                         <div className="flex items-center justify-between shadow-lg rounded-lg p-2">
                             <div className="flex items-center gap-2">
                                 <div className="shadow-xl w-fit p-2 rounded-full bg-background border-3 border-secondary">

@@ -129,7 +129,7 @@ function RiwayatPage() {
                 <p className="font-semibold text-white text-md font-mono">
                   {riwayat.deskripsi}
                 </p>
-                <p className="text-white">
+                <p className="text-gray-300 text-xs pr-2">
                   pesan admin:{" "}
                   {riwayat.catatan_admin || "tetap semangat dan lanjutkan"}
                 </p>

@@ -1,4 +1,4 @@
-import { Navigation, Trash2, Zap } from "react-feather";
+import { Layers, Navigation, Trash2, Zap } from "react-feather";
 import DarkModeToggle from "../component/darkMode";
 import NavDashboard from "../fragments/navDashboard";
 import {
@@ -29,16 +29,17 @@ function MisiPage() {
   }
 
   return (
-    <div className="h-[9999px] bg-background">
+    <div className="h-fit  bg-background">
       <NavDashboard />
       <div className="lg:w-3/4 lg:absolute lg:right-0">
-        <div className="w-full p-4 flex justify-end">
-          <DarkModeToggle />
-        </div>
-        <div className="p-2">
-          <h1 className="text-gray-200 text-2xl font-mono font-bold mb-4">
-            PETUALANGAN HIJAUMU
-          </h1>
+        <div className="p-2 pt-10">
+
+          <div className="flex items-center gap-2 mb-4">
+            <Layers className="text-primary"/>
+            <h1 className="text-gray-200 text-2xl font-mono font-bold">
+              PETUALANGAN HIJAUMU
+            </h1>
+          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <div className="flex flex-col gap-2">

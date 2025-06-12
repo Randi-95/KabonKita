@@ -231,9 +231,9 @@ function Dashboard() {
             <Link to="/riwayat" className="bg-secondary h-fit p-2 rounded-lg">
               <Clock className="text-white" />
             </Link>
-            <div className="bg-secondary h-fit p-2 rounded-lg">
+            <Link to="/profile" className="bg-secondary h-fit p-2 rounded-lg">
               <User className="text-white" />
-            </div>
+            </Link>
           </div>
         </div>
 
