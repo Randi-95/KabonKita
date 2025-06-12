@@ -15,6 +15,7 @@ import ProfilePage from './pages/Profile'
 import Home from './pages/Home'
 import { AuthProvider } from './context/authContext'
 import RiwayatPage from './pages/riwayat'
+import LencanaPage from './pages/Badges'
 
 const router = createBrowserRouter ([
   {
@@ -56,6 +57,10 @@ const router = createBrowserRouter ([
   {
     path: "/riwayat",
     element: <RiwayatPage/>
+  },
+  {
+    path: "/lencana",
+    element: <LencanaPage/>
   },
 ])
 

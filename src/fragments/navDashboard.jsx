@@ -1,4 +1,4 @@
-import { Award, Calendar, Home, Target, User } from "react-feather"
+import { Award, Bookmark, Calendar, Home, Target, User } from "react-feather"
 import { Link, NavLink } from "react-router-dom"
 import { useAuth } from "../hooks/useAuth"
 
@@ -45,14 +45,14 @@ function NavDashboard() {
         </NavLink>
 
         <NavLink 
-        to="/acara" 
+        to="/lencana" 
         className={({ isActive }) =>
             `flex flex-col lg:flex-row lg:gap-4 items-center lg:w-full lg:px-4 lg:py-3 cursor-pointer lg:transition-colors ${
             isActive ? 'text-primary lg:border-primary  lg:border-r-2' : 'text-gray-400 hover:text-primary lg:hover:border-r-2 lg:hover:border-primary'
             }`
         }>
-        <Calendar size="25px" className={({ isActive }) => (isActive ? 'text-primary' : 'text-gray-400')} />
-        <p className="text-xs lg:text-base lg:font-medium">Acara</p>
+        <Bookmark size="25px" className={({ isActive }) => (isActive ? 'text-primary' : 'text-gray-400')} />
+        <p className="text-xs lg:text-base lg:font-medium">Lencana</p>
         </NavLink>
 
 

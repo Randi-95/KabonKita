@@ -46,7 +46,7 @@ function ProfilePage() {
   };
   
   return (
-    <div className=" bg-background h-180">
+    <div className=" bg-background h-fit pb-20">
       <NavDashboard />
       <div className="lg:w-3/4 lg:absolute lg:right-0">
         <div className="w-full p-4 flex justify-between items-center">
@@ -59,28 +59,33 @@ function ProfilePage() {
           <DarkModeToggle />
         </div>
 
-        <div className="p-5 flex items-center gap-4 justify-center">
-          <img
-            src={profile?.profile_url}
-            alt=""
-            className="rounded-full w-25 border-2 border-primary"
-          />
-          <div className="flex flex-col gap-1">
-            <p className="text-gray-100 font-semibold text-xl">
-              {profile?.nama}
-            </p>
-            <div className="flex items-center border-2 border-primary w-fit p-1 px-2 gap-2 rounded-lg">
-              <Star className="text-primary" size="20px" />
-              <p className="text-primary">{profile?.points || 0} Poin</p>
+      <div className="flex flex-col gap-20">
+        <div className="p-5 flex items-center gap-4 justify-center flex-col">
+          
+          <div className="flex items-center gap-2">
+            <img
+              src={profile?.profile_url}
+              alt=""
+              className="rounded-full w-25 border-2 border-primary"
+            />
+            <div className="flex flex-col gap-1">
+              <p className="text-gray-100 font-semibold text-xl">
+                {profile?.nama}
+              </p>
+              <div className="flex items-center border-2 border-primary w-fit p-1 px-2 gap-2 rounded-lg">
+                <Star className="text-primary" size="20px" />
+                <p className="text-primary">{profile?.points || 0} Poin</p>
+              </div>
             </div>
           </div>
+          <button className="w-[80%] p-3 rounded-xl mx-auto shadow-lg flex justify-center bg-secondary ">
+            <p className="text-gray-200 text-lg font-bold ">
+              Lapor Aksi Hijau Kamu
+            </p>
+          </button>
         </div>
 
-        <button className="w-[80%] p-3 rounded-xl mx-auto shadow-lg flex justify-center bg-secondary ">
-          <p className="text-gray-200 text-lg font-bold ">
-            Lapor Aksi Hijau Kamu
-          </p>
-        </button>
+        
 
         <div className="h-100 rounded-t-4xl mt-6 w-full bg-secondary p-4 flex flex-col gap-4">
           <button class="flex items-center border-b border-primary justify-between w-full   p-3 hover:bg-green-800 rounded-t-lg focus:outline-none ">
@@ -163,6 +168,7 @@ function ProfilePage() {
             <p className="text-primary text-xl font-semibold">Logout</p>
           </button>
         </div>
+      </div>
       </div>
     </div>
   );
