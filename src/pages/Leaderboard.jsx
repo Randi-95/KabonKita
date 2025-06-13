@@ -7,7 +7,7 @@ import {
   UserX,
   Rocket,
   Loader,
-  AlertCircle,
+  AlertCircle
 } from "lucide-react";
 import NavDashboard from "../fragments/navDashboard";
 import React, { useState, useEffect, useCallback } from "react";
@@ -45,7 +45,6 @@ function LeaderboardPageGemini() {
       );
 
       const data = await response.json();
-      console.log(data);
       if (!response.ok) {
         throw new Error(data.message || "Gagal memuat data leaderboard.");
       }
@@ -143,8 +142,8 @@ function LeaderboardPageGemini() {
             </div>
 
             <div className="p-2 grid grid-cols-1 gap-2">
-              {restOfLeaderboard.map((user) => (
-                <RankItem key={user.id || user.name} user={user} />
+              {restOfLeaderboard.map((user, index) => (
+                <RankItem key={index} user={user} />
               ))}
             </div>
           </>

@@ -63,21 +63,22 @@ function PageSubmit() {
       const response = await fetch(`${API_BACKEND_URL}/api/kegiatan`, {
         method: "POST",
         headers: {
-          Authorization: `Bearer: ${session.access_token}`,
+          Authorization: `Bearer ${session.access_token}`,
         },
         body: formData,
       });
 
+      const result = await response.json();
+      
       if (!response.ok) {
         throw new Error(result.message || "Gagal mengirim bukti kegiatan.");
       }
-      const result = await response.json();
 
       alert(`Berhasil uploud ${result.message}`);
       navigate("/home");
     } catch (err) {
-      setMessage(`Error: ${err.message}`);
-      console.error("Submit Gagal:", error);
+             setMessage(`Error: ${err.message}`);
+        console.error("Submit Gagal:", err);
     } finally {
       setLoading(false);
     }

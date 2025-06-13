@@ -88,74 +88,74 @@ function ProfilePage() {
         
 
         <div className="h-100 rounded-t-4xl mt-6 w-full bg-secondary p-4 flex flex-col gap-4">
-          <button class="flex items-center border-b border-primary justify-between w-full   p-3 hover:bg-green-800 rounded-t-lg focus:outline-none ">
-            <div class="flex items-center">
+          <button className="flex items-center border-b border-primary justify-between w-full   p-3 hover:bg-green-800 rounded-t-lg focus:outline-none ">
+            <div className="flex items-center">
               <User className="text-white" />
 
-              <span class="ml-4 text-lg font-medium text-gray-200">
+              <span className="ml-4 text-lg font-medium text-gray-200">
                 Informasi Akun
               </span>
             </div>
 
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 text-gray-400"
+              className="h-6 w-6 text-gray-400"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              stroke-width="2"
+              strokeWidth="2"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 d="M9 5l7 7-7 7"
               />
             </svg>
           </button>
-          <button class="flex items-center border-b border-primary justify-between w-full   p-3 hover:bg-green-800  focus:outline-none ">
-            <div class="flex items-center">
+          <button className="flex items-center border-b border-primary justify-between w-full   p-3 hover:bg-green-800  focus:outline-none ">
+            <div className="flex items-center">
               <Info className="text-white" />
 
-              <span class="ml-4 text-lg font-medium text-gray-200">
+              <span className="ml-4 text-lg font-medium text-gray-200">
                 Tentang Kami
               </span>
             </div>
 
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 text-gray-400"
+              className="h-6 w-6 text-gray-400"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              stroke-width="2"
+              strokeWidth="2"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 d="M9 5l7 7-7 7"
               />
             </svg>
           </button>
-          <button class="flex items-center border-b border-primary justify-between w-full   p-3 hover:bg-green-800  focus:outline-none ">
-            <div class="flex items-center">
+          <button className="flex items-center border-b border-primary justify-between w-full   p-3 hover:bg-green-800  focus:outline-none ">
+            <div className="flex items-center">
               <Headphones className="text-white" />
 
-              <span class="ml-4 text-lg font-medium text-gray-200">
+              <span className="ml-4 text-lg font-medium text-gray-200">
                 Bantuan
               </span>
             </div>
 
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 text-gray-400"
+              className="h-6 w-6 text-gray-400"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              stroke-width="2"
+              strokeWidth="2"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 d="M9 5l7 7-7 7"
               />
             </svg>
