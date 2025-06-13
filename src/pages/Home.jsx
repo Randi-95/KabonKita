@@ -126,9 +126,9 @@ function Home() {
                 </section>
 
                
-                <section id="tentang" className="py-20 lg:py-28">
-                    <div className="container mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
-                        <div className="order-2 lg:order-1">
+                <section id="tentang" className="py-20 lg:py-23">
+                    <div className="container mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-25 items-center">
+                        <div className="order-1 lg:order-2">
                             <span className="text-sm font-semibold text-teal-400 uppercase">Misi Kami</span>
                             <h2 className="mt-2 text-3xl lg:text-4xl font-bold text-white">Membawa Semangat Aksi ke Tengah Komunitas</h2>
                             <p className="mt-4 text-slate-400">Di KarbonKita, kami percaya bahwa aksi ramah lingkungan bisa dimulai dari langkah kecil, dilakukan bersama, dan terasa menyenangkan. Kami menghadirkan cara baru untuk bergerak bersama warga dari tingkat RT, RW, hingga kelurahan dalam misi yang berdampak bagi bumi.</p>
@@ -147,7 +147,7 @@ function Home() {
                                 </li>
                             </ul>
                         </div>
-                        <div className="order-1 lg:order-2 flex justify-center">
+                        <div className="order-2 lg:order-1 flex justify-center">
                             <div className="w-full max-w-md h-50 bg-slate-800 rounded-2xl flex items-center justify-center border border-dashed border-slate-700">
                                 <img src="/commuunity.jpg" alt="Ilustrasi yang menggambarkan perjalanan dari niat menjadi aksi nyata" className="rounded-lg shadow-xl border-1 border-dashed border-primary"/>
                             </div>
