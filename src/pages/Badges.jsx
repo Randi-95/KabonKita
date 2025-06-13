@@ -1,121 +1,145 @@
-import { ArrowLeft } from "react-feather";
-import NavDashboard from "../fragments/navDashboard";
-import { ArrowRight, Medal } from "lucide-react";
+import { ArrowLeft, Medal, ArrowRight, Lock, Unlock } from "lucide-react";
 import { Link } from "react-router-dom";
 
-function LencanaPage() {
-    return(
-        <div className="h-fit pb-20 bg-background ">
-           <NavDashboard/>
-           <div className="lg:w-3/4 lg:absolute lg:right-0">
-
-              <div className="flex flex-col gap-30">
-                <div className="flex justify-between p-2 items-center">
-                    <Link to="/home" className="">
-                        <ArrowLeft className="text-gray-200"  size="30px"/>
-                    </Link>
-                    <h2 className="text-gray-200 font-semibold font-mono text-2xl">Lencana Randi</h2>
-                    <div className="">
-                        <Medal className="text-gray-200" size="30px"/>
-                    </div>
-                </div>
-
-
-                <div className="h-auto w-full bg-secondary rounded-t-xl shadow-xl">
-                    <div className="flex justify-center">
-                        <div className="w-30 border-4 border-secondary shadow-lg rounded-full p-2 bg-background -translate-y-15">
-                            <img src="/lencana.png" alt="" />
-                        </div>
-                    </div>
-
-                    <div className="px-2 flex flex-col gap-2">
-                        <div className="flex items-center justify-between shadow-lg rounded-lg p-2">
-                            <div className="flex items-center gap-2">
-                                <div className="shadow-xl w-fit p-2 rounded-full bg-background border-3 border-secondary">
-                                    <img src="/lencana.png" alt="" className="w-14"/>
-                                </div>
-                                <div className="">
-                                    <h2 className="font-bold text-xl text-gray-300">Level 1 Pemula</h2>
-                                    <p className="text-gray-400 text-xs">Capai 250 point untuk Lencana</p>
-                                </div>
-                            </div>
-
-                            <div className="">
-                                <ArrowRight className="text-gray-300" size="30px"/>
-                            </div>
-                        </div>
-
-                        <div className="flex items-center justify-between shadow-lg rounded-lg p-2">
-                            <div className="flex items-center gap-2">
-                                <div className="shadow-xl w-fit p-2 rounded-full bg-background border-3 border-secondary">
-                                    <img src="/lencana2.png" alt="" className="w-14"/>
-                                </div>
-                                <div className="">
-                                    <h2 className="font-bold text-xl text-gray-300">Level 2 Penggiat </h2>
-                                    <p className="text-gray-400 text-xs">Capai 250 point untuk Lencana</p>
-                                </div>
-                            </div>
-
-                            <div className="">
-                                <ArrowRight className="text-gray-300" size="30px"/>
-                            </div>
-                        </div>
-
-                        <div className="flex items-center justify-between shadow-lg rounded-lg p-2">
-                            <div className="flex items-center gap-2">
-                                <div className="shadow-xl w-fit p-2 rounded-full bg-background border-3 border-secondary">
-                                    <img src="/lencana3.png" alt="" className="w-14"/>
-                                </div>
-                                <div className="">
-                                    <h2 className="font-bold text-xl text-gray-300">Level 3 Pakar</h2>
-                                    <p className="text-gray-400 text-xs">Capai 250 point untuk Lencana</p>
-                                </div>
-                            </div>
-
-                            <div className="">
-                                <ArrowRight className="text-gray-300" size="30px"/>
-                            </div>
-                        </div>
-
-                        <div className="flex items-center justify-between shadow-lg rounded-lg p-2">
-                            <div className="flex items-center gap-2">
-                                <div className="shadow-xl w-fit p-2 rounded-full bg-background border-3 border-secondary">
-                                    <img src="/lencana4.png" alt="" className="w-14"/>
-                                </div>
-                                <div className="">
-                                    <h2 className="font-bold text-xl text-gray-300">Level 4 Master</h2>
-                                    <p className="text-gray-400 text-xs">Capai 250 point untuk Lencana</p>
-                                </div>
-                            </div>
-
-                            <div className="">
-                                <ArrowRight className="text-gray-300" size="30px"/>
-                            </div>
-                        </div>
-
-                        <div className="flex items-center justify-between shadow-lg rounded-lg p-2">
-                            <div className="flex items-center gap-2">
-                                <div className="shadow-xl w-fit p-2 rounded-full bg-background border-3 border-secondary">
-                                    <img src="/lencana5.png" alt="" className="w-14"/>
-                                </div>
-                                <div className="">
-                                    <h2 className="font-bold text-xl text-gray-300">Level 5 Avatar</h2>
-                                    <p className="text-gray-400 text-xs">Capai 250 point untuk Lencana</p>
-                                </div>
-                            </div>
-
-                            <div className="">
-                                <ArrowRight className="text-gray-300" size="30px"/>
-                            </div>
-                        </div>
-
-                   
-                    </div>
-                </div>
-              </div>
-           </div>
+const BadgeCard = ({ level, title, description, imageUrl, isUnlocked }) => {
+  return (
+    <div
+      className={`
+        flex items-center justify-between shadow-lg rounded-xl p-4
+        transition-all duration-300 ease-in-out
+        ${
+          isUnlocked
+            ? "bg-white/5 hover:bg-white/10 hover:scale-105 cursor-pointer"
+            : "bg-black/20 filter grayscale"
+        }
+      `}
+    >
+      <div className="flex items-center gap-4 w-full">
+        <div className="shadow-xl w-fit p-2 rounded-full bg-background border-2 border-secondary flex-shrink-0">
+          <img src={imageUrl} alt={`Lencana ${title}`} className="w-14 h-14" />
         </div>
-    )
+        
+        <div className="w-full">
+          <h2 className="font-bold text-xl text-gray-200">
+            Level {level} <span className="text-yellow-400">{title}</span>
+          </h2>
+          <p className="text-gray-400 text-sm mt-1">{description}</p>
+          
+          <div className="mt-3 w-full bg-gray-700 rounded-full h-2">
+            <div
+              className={`
+                h-2 rounded-full bg-yellow-400
+                transition-all duration-700 ease-out
+                ${isUnlocked ? 'w-full' : 'w-0'}
+              `}
+            ></div>
+          </div>
+
+        </div>
+      </div>
+
+      <div className="pl-4">
+        {isUnlocked ? (
+          <Unlock className="text-gray-300" size={30} />
+        ) : (
+          <Lock className="text-gray-500" size={30} />
+        )}
+      </div>
+    </div>
+  );
+};
+
+
+
+const badgeData = [
+  {
+    id: 1,
+    level: 1,
+    title: "Pemula",
+    description: "Capai 250 point untuk lencana ini",
+    imageUrl: "/lencana.png",
+    isUnlocked: true, 
+  },
+  {
+    id: 2,
+    level: 2,
+    title: "Penggiat",
+    description: "Capai 500 point untuk lencana ini",
+    imageUrl: "/lencana2.png",
+    isUnlocked: true,
+  },
+  {
+    id: 3,
+    level: 3,
+    title: "Pakar",
+    description: "Capai 1000 point untuk lencana ini",
+    imageUrl: "/lencana3.png",
+    isUnlocked: false,
+  },
+  {
+    id: 4,
+    level: 4,
+    title: "Master",
+    description: "Capai 2500 point untuk lencana ini",
+    imageUrl: "/lencana4.png",
+    isUnlocked: false,
+  },
+  {
+    id: 5,
+    level: 5,
+    title: "Avatar",
+    description: "Capai 5000 point untuk lencana ini",
+    imageUrl: "/lencana5.png",
+    isUnlocked: false,
+  },
+];
+
+function LencanaPage() {
+  return (
+    <div className="flex min-h-screen bg-background text-gray-200">
+      <main className=" flex-1 lg:w-3/4 p-4 flex flex-col gap-8">
+        <header className="flex justify-between items-center">
+          <Link
+            to="/home"
+            className="p-2 rounded-full hover:bg-white/10 transition-colors"
+          >
+            <ArrowLeft size={28} />
+          </Link>
+          <h1 className="font-semibold font-mono text-2xl tracking-wider">
+            Lencana Randi
+          </h1>
+          <div className="p-2">
+            <Medal size={28} className="text-yellow-400" />
+          </div>
+        </header>
+
+        <section className="bg-secondary w-full flex-1 mt-10 rounded-t-3xl shadow-2xl md:mx-0">
+          <div className="flex justify-center">
+            <div className="w-28 h-28 border-4 border-secondary shadow-lg rounded-full p-2 bg-background -translate-y-1/2">
+              <img
+                src="/lencana.png"
+                alt="Lencana Saat Ini"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          <div className="px-4 pb-4 -mt-10 flex flex-col gap-4">
+            {badgeData.map((badge) => (
+              <BadgeCard
+                key={badge.id}
+                level={badge.level}
+                title={badge.title}
+                description={badge.description}
+                imageUrl={badge.imageUrl}
+                isUnlocked={badge.isUnlocked}
+              />
+            ))}
+          </div>
+        </section>
+      </main>
+    </div>
+  );
 }
 
 export default LencanaPage;
