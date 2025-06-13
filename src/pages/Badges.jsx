@@ -146,7 +146,7 @@ function LencanaPage() {
             <ArrowLeft size={28} />
           </Link>
           <h1 className="font-semibold font-mono text-2xl tracking-wider">
-            Lencana Randi
+            Lencana {profile?.nama}
           </h1>
           <div className="p-2">
             <Medal size={28} className="text-yellow-400" />
