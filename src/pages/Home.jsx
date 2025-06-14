@@ -206,15 +206,14 @@ function Home() {
                         
                         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
                         <div className="flex justify-center">
-                            <div className="w-full max-w-md h-80 bg-slate-800 rounded-2xl flex items-center justify-center border border-dashed border-slate-700">
-                            <img src="" alt="Screenshot dari daftar misi KarbonKita" className="hidden" />
-                            <p className="text-slate-500">Placeholder screenshot misi</p>
+                            <div className="w-full max-w-md   rounded-2xl flex items-center justify-center">
+                                <img src="/mockup2.png" alt="Ilustrasi yang menggambarkan perjalanan dari niat menjadi aksi nyata" />
                             </div>
                         </div>
                         <div>
                             <div className="inline-flex items-center gap-3">
                             <Layers className="text-green-400" />
-                            <h3 className="text-2xl font-bold text-white">Misi Harian & Mingguan</h3>
+                            <h3 className="text-2xl font-bold text-white">Misi Bervariasi</h3>
                             </div>
                             <p className="mt-4 text-slate-400">
                             Pilih misi yang sesuai dengan gaya hidup dan jadwalmu—seperti “Bawa Botol Minum Sendiri” atau “Bersih-Bersih Lingkungan”.
@@ -234,20 +233,17 @@ function Home() {
                             </p>
                         </div>
                         <div className="order-1 lg:order-2 flex justify-center">
-                            <div className="w-full max-w-md h-80 bg-slate-800 rounded-2xl flex items-center justify-center border border-dashed border-slate-700">
-                            <img src="" alt="Contoh unggahan foto aksi oleh pengguna" className="hidden" />
-                            <p className="text-slate-500">Placeholder screenshot unggah aksi</p>
+                           <div className="w-full max-w-md   rounded-2xl flex items-center justify-center">
+                                <img src="/mockup.png" alt="Ilustrasi yang menggambarkan perjalanan dari niat menjadi aksi nyata" />
                             </div>
                         </div>
                         </div>
 
-                        {/* tes */}
 
                         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
                         <div className="flex justify-center">
-                            <div className="w-full max-w-md h-80 bg-slate-800 rounded-2xl flex items-center justify-center border border-dashed border-slate-700">
-                            <img src="" alt="Ilustrasi sistem poin dan lencana" className="hidden" />
-                            <p className="text-slate-500">Placeholder screenshot lencana</p>
+                            <div className="w-full max-w-md rounded-2xl flex items-center justify-center">
+                                <img src="/mockup3.png" alt="Ilustrasi yang menggambarkan perjalanan dari niat menjadi aksi nyata" />
                             </div>
                         </div>
                         <div>
@@ -272,18 +268,16 @@ function Home() {
                             </p>
                         </div>
                         <div className="order-1 lg:order-2 flex justify-center">
-                            <div className="w-full max-w-md h-80 bg-slate-800 rounded-2xl flex items-center justify-center border border-dashed border-slate-700">
-                            <img src="" alt="Tampilan leaderboard komunitas" className="hidden" />
-                            <p className="text-slate-500">Placeholder screenshot leaderboard</p>
+                            <div className="w-full max-w-md   rounded-2xl flex items-center justify-center">
+                                <img src="/mockcup4.png" alt="Ilustrasi yang menggambarkan perjalanan dari niat menjadi aksi nyata" />
                             </div>
                         </div>
                         </div>
 
                         <div className="grid lg:grid-cols-2 gap-12 items-center mt-20">
                         <div className="flex justify-center">
-                            <div className="w-full max-w-md h-80 bg-slate-800 rounded-2xl flex items-center justify-center border border-dashed border-slate-700">
-                            <img src="" alt="Tampilan dashboard personal pengguna KarbonKita" className="hidden" />
-                            <p className="text-slate-500">Placeholder screenshot dashboard</p>
+                            <div className="w-full max-w-md   rounded-2xl flex items-center justify-center">
+                                <img src="/mockup1.png" alt="Ilustrasi yang menggambarkan perjalanan dari niat menjadi aksi nyata" />
                             </div>
                         </div>
                         <div>
@@ -382,14 +376,7 @@ function Home() {
                             </ul>
                         </div>
                         
-                        <div>
-                            <h4 className="font-semibold text-white tracking-wider uppercase">Perusahaan</h4>
-                            <ul className="mt-4 space-y-3">
-                                <li><a href="#tentang" className="text-slate-400 hover:text-teal-400">Tentang Kami</a></li>
-                                <li><a href="#" className="text-slate-400 hover:text-teal-400">Blog</a></li>
-                                <li><a href="#" className="text-slate-400 hover:text-teal-400">Kontak</a></li>
-                            </ul>
-                        </div>
+                       
                         
                         <div>
                             <h4 className="font-semibold text-white tracking-wider uppercase">Tetap Terhubung</h4>
