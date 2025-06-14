@@ -186,7 +186,7 @@ function Dashboard() {
       </div>
     );
   }
-
+  
   const topThree = leaderboardData.slice(0, 3);
   const winner1 = topThree.find((user) => user.rank === 1);
   const winner2 = topThree.find((user) => user.rank === 2);
