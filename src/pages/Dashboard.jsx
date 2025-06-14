@@ -179,15 +179,6 @@ function Dashboard() {
     fetchLeaderboard();
   }, [fetchLeaderboard]);
 
-  // if (authLoading || statsLoading) {
-  //   return (
-  //     <div className="flex justify-center items-center h-screen bg-background">
-  //       <Loader className="animate-spin text-primary" size={48} />
-  //       <p className="ml-4 text-lg text-gray-300">Memuat data...</p>
-  //     </div>
-  //   );
-  // }
-
   if (!session) {
     return (
       <div className="w-full h-screen justify-center items-center">
