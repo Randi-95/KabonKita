@@ -5,7 +5,7 @@ import { Headphones, Info } from "lucide-react";
 import { useAuth } from "../hooks/useAuth";
 import { Loader } from "react-feather";
 import { supabase } from "../supabaseClient";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Links, useNavigate } from "react-router-dom";
 import AlertLogin from "../component/alertLogin";
 
 function ProfilePage() {
@@ -83,8 +83,9 @@ function ProfilePage() {
     </button>
   </div>
 
+    {/* tes */}
   <div className="flex-grow rounded-t-4xl mt-6 w-full bg-secondary p-4 flex flex-col gap-4">
-    <button className="flex items-center border-b border-primary justify-between w-full p-3 hover:bg-green-800 rounded-t-lg focus:outline-none">
+    <Link to="/infoakun" className="flex items-center border-b border-primary justify-between w-full p-3 hover:bg-green-900 rounded-t-lg focus:outline-none">
       <div className="flex items-center">
         <User className="text-white" />
         <span className="ml-4 text-lg font-medium text-gray-200">
@@ -101,9 +102,9 @@ function ProfilePage() {
       >
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
       </svg>
-    </button>
+    </Link>
 
-    <button className="flex items-center border-b border-primary justify-between w-full p-3 hover:bg-green-800 focus:outline-none">
+    <button className="flex items-center border-b border-primary justify-between w-full p-3 hover:bg-green-900 focus:outline-none">
       <div className="flex items-center">
         <Info className="text-white" />
         <span className="ml-4 text-lg font-medium text-gray-200">
@@ -122,7 +123,7 @@ function ProfilePage() {
       </svg>
     </button>
 
-    <button className="flex items-center border-b border-primary justify-between w-full p-3 hover:bg-green-800 focus:outline-none">
+    <button className="flex items-center border-b border-primary justify-between w-full p-3 hover:bg-green-900 focus:outline-none">
       <div className="flex items-center">
         <Headphones className="text-white" />
         <span className="ml-4 text-lg font-medium text-gray-200">

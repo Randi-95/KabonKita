@@ -16,6 +16,7 @@ import Home from './pages/Home'
 import { AuthProvider } from './context/authContext'
 import RiwayatPage from './pages/riwayat'
 import LencanaPage from './pages/Badges'
+import PageInfoAkun from './pages/InfoAkun'
 
 const router = createBrowserRouter ([
   {
@@ -61,6 +62,10 @@ const router = createBrowserRouter ([
   {
     path: "/lencana",
     element: <LencanaPage/>
+  },
+   {
+    path: "/infoakun",
+    element: <PageInfoAkun/>
   },
 ])
 
