@@ -358,7 +358,7 @@ function AdminPage() {
                       {activity.user_profile.nama}
                     </div>
                     <div className="text-sm text-gray-200">
-                      {activity.user_profile.email || "N/A"}
+                      {session?.user.user_metadata.email}
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">

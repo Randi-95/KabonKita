@@ -119,7 +119,7 @@ function RiwayatPage() {
             <Loader className="animate-spin text-primary" size={48} />
           </div>
         ) : (
-          dataRiwayat?.map((riwayat, index) => (
+          dataRiwayat?.slice().reverse().map((riwayat, index) => (
             <div
               key={index}
               className="flex items-center bg-background border border-primary rounded-lg p-2 shadow-xl px-4"
@@ -130,7 +130,7 @@ function RiwayatPage() {
                 </p>
                 <p className="text-gray-300 text-xs pr-2">
                   pesan admin:{" "}
-                  {riwayat.catatan_admin || "tetap semangat dan lanjutkan"}
+                  {riwayat.status === "pending" ? "Menunggu diperiksa oleh admin." : riwayat.catatan_admin || "tetap semangat dan lanjutkan"}
                 </p>
               </div>
 
