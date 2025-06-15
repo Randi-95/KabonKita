@@ -16,7 +16,7 @@ function PageTentangKami () {
             </div>
             <div className="text-gray-200 text-justify pb-2 leading-5 mt-4">
                 <p><strong>Siapa Kami?</strong></p>
-                <p>Kami adalah <strong>PEMUDA SINTAKS 1</strong>, tim di balik KarbonKita, sebuah platform web interaktif yang dirancang untuk menjadikan aksi peduli lingkungan sebagai kegiatan yang seru dan bermakna. Misi kami adalah mengubah kebiasaan sehari-hari seperti memilah sampah atau menghemat listrik menjadi sebuah "petualangan hijau" bersama tetangga melalui mekanisme gamifikasi.</p>
+                <p>Kami adalah <strong>PEMUDA SINTAKS 1</strong> yang beranggotakan Moch Rafi Andi Prayitno, Randi Permana Shidiq, Reno Alif yang berlatar belakang pelajar di SMKN 1 Surabaya, sebuah platform web interaktif yang dirancang untuk menjadikan aksi peduli lingkungan sebagai kegiatan yang seru dan bermakna. Misi kami adalah mengubah kebiasaan sehari-hari seperti memilah sampah atau menghemat listrik menjadi sebuah "petualangan hijau" bersama tetangga melalui mekanisme gamifikasi.</p>
                 <br />
                 <p><strong>Masalah yang Kami Atasi</strong></p>
                 <p>Kami melihat adanya tantangan besar: partisipasi masyarakat dalam kegiatan lingkungan di tingkat RT/RW masih sangat rendah, dengan hanya sekitar 8,1% warga yang rutin terlibat. Hal ini sering kali disebabkan oleh kurangnya motivasi , minimnya apresiasi sosial , serta anggapan bahwa aksi lingkungan itu membosankan dan tidak berdampak nyata. Banyak warga merasa kontribusi kecil mereka sia-sia karena dampaknya sulit terlihat secara langsung.</p>
