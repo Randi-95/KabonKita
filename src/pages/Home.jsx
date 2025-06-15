@@ -342,9 +342,9 @@ function Home() {
                          <h2 className="text-3xl lg:text-4xl font-extrabold text-white">Siap Membuat Perbedaan Nyata?</h2>
                          <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">Bergabunglah dengan ribuan pahlawan lingkungan lainnya dan buktikan aksimu hari ini adalah investasi untuk masa depan bumi.</p>
                          <div className="mt-8">
-                             <a href="#" className="inline-block px-12 py-4 font-bold text-lg text-gray-900 bg-green-500 rounded-lg hover:bg-green-600 transition-transform transform">
+                             <Link to="/register" className="inline-block px-12 py-4 font-bold text-lg text-gray-900 bg-green-500 rounded-lg hover:bg-green-600 transition-transform transform">
                                 Daftar Gratis Sekarang!
-                            </a>
+                            </Link>
                          </div>
                     </div>
                 </section>
@@ -354,15 +354,14 @@ function Home() {
             
             <footer className="bg-background border-t border-slate-500">
                 <div className="container mx-auto px-6 lg:px-8 py-16">
-                    <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-12">
+                    <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-12">
                         
                         <div className="lg:col-span-2">
                             <h3 className="text-xl font-bold text-white">Karbon<span className="text-primary">Kita</span></h3>
                             <p className="mt-2 text-slate-400 max-w-xs">Platform gamifikasi untuk aksi iklim nyata. Mengubah kebiasaan, menyelamatkan planet.</p>
                             <div className="flex gap-5 mt-6">
                                 <a href="https://x.com/Atreides176?t=_j4ejlRWO8tbGHtYecfd0w&s=09" className="text-slate-500 hover:text-teal-400 transition-colors" target="_blank"><Twitter /></a>
-                                <a href="https://www.instagram.com/renno.renn?igsh=Y2gxMzNueXM4amto" className="text-slate-500 hover:text-teal-400 transition-colors" target="_blank"><Instagram /></a>
-                                <a href="https://www.linkedin.com/in/moch-rafi-andi-prayitno-125b6531b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="text-slate-500 hover:text-teal-400 transition-colors" target="_blank"><Linkedin /></a>
+                                <a href="https://www.instagram.com/rafi.ap_95/" className="text-slate-500 hover:text-teal-400 transition-colors" target="_blank"><Instagram /></a>
                                 <a href="https://github.com/Randi-95" className="text-slate-500 hover:text-teal-400 transition-colors" target="_blank"><Github /></a>
                             </div>
                         </div>
@@ -376,18 +375,17 @@ function Home() {
                             </ul>
                         </div>
                         
-
-                        
-                        <div>
-                            <h4 className="font-semibold text-white tracking-wider uppercase">Tetap Terhubung</h4>
-                            <p className="mt-4 text-slate-400">Dapatkan update terbaru, misi spesial, dan berita dari kami.</p>
-                            <form className="mt-4 flex">
-                                <input type="email" placeholder="email@anda.com" className="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-l-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-white" />
-                                <button type="submit" className="p-3 bg-teal-500 rounded-r-md hover:bg-teal-600">
-                                    <Mail size={18} className="text-white"/>
-                                </button>
-                            </form>
+                        <div className='lg:col-span-1/2'>
+                            <h4 className="font-semibold text-white tracking-wider uppercase">Tim Pengembang</h4>
+                            <p className="mt-4 text-slate-400">Untuk masa depan bumi, dari tim Pemuda Sintaks 1 — rekan Anda menuju jejak karbon lebih baik.</p>
+                            <div className="flex gap-5 mt-6">
+                                <a href="https://www.linkedin.com/in/moch-rafi-andi-prayitno-125b6531b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="text-slate-500 hover:text-teal-400 transition-colors" target="_blank"><Linkedin /></a>
+                                <a href="https://www.linkedin.com/in/randi-permana-shidiq-3b483b328/" className="text-slate-500 hover:text-teal-400 transition-colors" target="_blank"><Linkedin /></a>
+                                <a href="https://www.linkedin.com/in/reno-alif-prasetyo-080938363/" className="text-slate-500 hover:text-teal-400 transition-colors" target="_blank"><Linkedin /></a>
+                            </div>
                         </div>
+                        
+                       
                     </div>
                     <div className="mt-12 border-t border-slate-800 pt-8 text-center md:text-left">
                         <p className="text-slate-500">&copy; {new Date().getFullYear()} KarbonKita. Semua Hak Cipta Dilindungi.</p>

@@ -76,14 +76,13 @@ function ProfilePage() {
         </div>
       </div>
     </div>
-    <button className="w-[80%] p-3 rounded-xl mx-auto shadow-lg flex justify-center bg-secondary">
+    <Link to="/misi" className="w-[80%] p-3 rounded-xl mx-auto shadow-lg flex justify-center bg-primary">
       <p className="text-gray-200 text-lg font-bold">
         Lapor Aksi Hijau Kamu
       </p>
-    </button>
+    </Link>
   </div>
 
-    {/* tes */}
   <div className="flex-grow rounded-t-4xl mt-6 w-full bg-secondary p-4 flex flex-col gap-4">
     <Link to="/infoakun" className="flex items-center border-b border-primary justify-between w-full p-3 hover:bg-green-900 rounded-t-lg focus:outline-none">
       <div className="flex items-center">
@@ -104,7 +103,7 @@ function ProfilePage() {
       </svg>
     </Link>
 
-    <button className="flex items-center border-b border-primary justify-between w-full p-3 hover:bg-green-900 focus:outline-none">
+    <Link to="/tentangkami" className="flex items-center border-b border-primary justify-between w-full p-3 hover:bg-green-900 focus:outline-none">
       <div className="flex items-center">
         <Info className="text-white" />
         <span className="ml-4 text-lg font-medium text-gray-200">
@@ -121,9 +120,9 @@ function ProfilePage() {
       >
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
       </svg>
-    </button>
+    </Link>
 
-    <button className="flex items-center border-b border-primary justify-between w-full p-3 hover:bg-green-900 focus:outline-none">
+    <a href="https://wa.me/628993903149" target="_blank" rel="noopener noreferrer" className="flex items-center border-b border-primary justify-between w-full p-3 hover:bg-green-900 focus:outline-none">
       <div className="flex items-center">
         <Headphones className="text-white" />
         <span className="ml-4 text-lg font-medium text-gray-200">
@@ -140,11 +139,11 @@ function ProfilePage() {
       >
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
       </svg>
-    </button>
+    </a>
 
     <button
       onClick={() => handleLogOut()}
-      className="cursor-pointer flex items-center justify-center border-2 border-primary w-full py-4 px-2 gap-2 rounded-lg"
+      className="cursor-pointer flex items-center justify-center border-2 border-primary w-full py-3 px-2 gap-2 rounded-lg"
     >
       <LogOut className="text-primary" size="30px" />
       <p className="text-primary text-xl font-semibold">Logout</p>

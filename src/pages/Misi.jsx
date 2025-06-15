@@ -29,7 +29,7 @@ function MisiPage() {
   }
 
   return (
-    <div className="h-fit  bg-background">
+    <div className="h-fit pb-30 bg-background">
       <NavDashboard />
       <div className="lg:w-3/4 lg:absolute lg:right-0">
         <div className="p-2 pt-10">

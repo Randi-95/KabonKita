@@ -21,7 +21,7 @@ function NavAdmin() {
     }
   };
   return (
-    <div className="bg-secondary z-50 fixed flex items-center lg:items-start bottom-0 lg:bottom-auto lg:left-0 lg:flex-col lg:w-60 h-20 lg:h-full w-full border-t lg:border-t-0 lg:border-r border-[#2d5c41] justify-evenly lg:justify-start lg:gap-6 lg:pt-8">
+    <div className="bg-secondary z-50 fixed flex items-center lg:items-start bottom-0 lg:bottom-auto lg:left-0 lg:flex-col lg:w-60 h-20 lg:h-full w-full border-t lg:border-t-0 lg:border-r border-[#2d5c41] justify-evenly lg:justify-start lg:gap-6 lg:pt-8 px-4">
       <div className="lg:flex justify-center w-full hidden">
         <img src="/KarbonKita.png" alt="" className="w-40 -translate-x-2" />
       </div>
@@ -46,10 +46,10 @@ function NavAdmin() {
       </NavLink>
       <button
         onClick={() => handleLogOut()}
-        className="cursor-pointer flex items-center justify-center border-2 border-primary w-full py-2 px-1 gap-2 rounded-lg"
+        className="cursor-pointer flex items-center justify-center border-2 border-primary mx-auto w-1/2 py-2 px-1 gap-2 rounded-lg"
       >
-        <LogOut className="text-primary" size="30px" />
-        <p className="text-primary text-xl font-semibold">Logout</p>
+        <LogOut className="text-primary" size="20px" />
+        <p className="text-primary text-md font-semibold">Logout</p>
       </button>
     </div>
   );

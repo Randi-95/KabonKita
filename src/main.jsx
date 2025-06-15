@@ -17,6 +17,7 @@ import { AuthProvider } from './context/authContext'
 import RiwayatPage from './pages/riwayat'
 import LencanaPage from './pages/Badges'
 import PageInfoAkun from './pages/InfoAkun'
+import PageTentangKami from './pages/tentangkami'
 
 const router = createBrowserRouter ([
   {
@@ -66,6 +67,10 @@ const router = createBrowserRouter ([
    {
     path: "/infoakun",
     element: <PageInfoAkun/>
+  },
+   {
+    path: "/tentangkami",
+    element: <PageTentangKami/>
   },
 ])
 
