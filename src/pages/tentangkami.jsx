@@ -13,7 +13,7 @@ function PageTentangKami() {
       </div>
     );
   }
-//   tes
+
   return (
     <div className="px-6 md:px-9 py-4 bg-background min-h-screen">
       <div className="flex justify-between items-center">
